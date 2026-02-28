@@ -1,0 +1,7 @@
+---
+// Middleware handles redirect:
+// - No user_prefs cookie → /onboarding
+// - Has user_prefs cookie → /search
+// This page is a fallback that should rarely be reached.
+return Astro.redirect("/onboarding");
+---

@@ -1,0 +1,16 @@
+---
+import SettingsPanel from "../components/settings/SettingsPanel";
+import Layout from "../layouts/Layout.astro";
+import { parseUserPrefs } from "../utils/cookies.ts";
+
+const prefs = parseUserPrefs(Astro.request.headers.get("cookie"));
+const color = prefs?.color ?? "#6750A4";
+const tone = prefs?.tone ?? "vibrant";
+---
+
+<Layout title="設定">
+  <main style="padding: 16px;">
+    <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 24px;">設定</h1>
+    <SettingsPanel client:load initialColor={color} initialTone={tone} />
+  </main>
+</Layout>

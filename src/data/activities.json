@@ -1,0 +1,8 @@
+[
+	{ "id": "ocean", "label": "海を見たい", "icon": "🌊" },
+	{ "id": "mountains", "label": "山を見たい", "icon": "⛰️" },
+	{ "id": "food", "label": "ご飯が食べたい", "icon": "🍜" },
+	{ "id": "temples", "label": "寺社仏閣", "icon": "⛩️" },
+	{ "id": "onsen", "label": "温泉", "icon": "♨️" },
+	{ "id": "urban", "label": "街歩き", "icon": "🏙️" }
+]

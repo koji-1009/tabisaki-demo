@@ -1,0 +1,472 @@
+[
+	{
+		"id": "hokkaido",
+		"name": "北海道",
+		"nameEn": "Hokkaido",
+		"region": "hokkaido",
+		"description": "日本最北端の大地。ラベンダー畑、新鮮な海鮮、スキーリゾートが魅力。",
+		"highlights": ["ラベンダー畑", "新鮮な海鮮", "スキー", "富良野"],
+		"activities": ["ocean", "mountains", "food"],
+		"imageUrl": "/images/hokkaido.jpg"
+	},
+	{
+		"id": "aomori",
+		"name": "青森県",
+		"nameEn": "Aomori",
+		"region": "tohoku",
+		"description": "ねぶた祭りと津軽海峡の絶景。りんごの名産地としても知られる。",
+		"highlights": ["ねぶた祭り", "りんご", "奥入瀬渓流"],
+		"activities": ["mountains", "food", "ocean"],
+		"imageUrl": "/images/aomori.jpg"
+	},
+	{
+		"id": "iwate",
+		"name": "岩手県",
+		"nameEn": "Iwate",
+		"region": "tohoku",
+		"description": "平泉の世界遺産と広大な自然。わんこそばの発祥の地。",
+		"highlights": ["中尊寺金色堂", "わんこそば", "龍泉洞"],
+		"activities": ["temples", "food", "mountains"],
+		"imageUrl": "/images/iwate.jpg"
+	},
+	{
+		"id": "miyagi",
+		"name": "宮城県",
+		"nameEn": "Miyagi",
+		"region": "tohoku",
+		"description": "仙台は杜の都。牛タンと松島の景勝が有名。",
+		"highlights": ["松島", "牛タン", "仙台七夕まつり"],
+		"activities": ["ocean", "food", "urban"],
+		"imageUrl": "/images/miyagi.jpg"
+	},
+	{
+		"id": "akita",
+		"name": "秋田県",
+		"nameEn": "Akita",
+		"region": "tohoku",
+		"description": "なまはげと乳頭温泉。きりたんぽ鍋が冬の名物。",
+		"highlights": ["乳頭温泉", "なまはげ", "きりたんぽ鍋"],
+		"activities": ["onsen", "food", "mountains"],
+		"imageUrl": "/images/akita.jpg"
+	},
+	{
+		"id": "yamagata",
+		"name": "山形県",
+		"nameEn": "Yamagata",
+		"region": "tohoku",
+		"description": "蔵王の樹氷とさくらんぼ。銀山温泉の幻想的な景観。",
+		"highlights": ["蔵王樹氷", "さくらんぼ", "銀山温泉"],
+		"activities": ["mountains", "onsen", "food"],
+		"imageUrl": "/images/yamagata.jpg"
+	},
+	{
+		"id": "fukushima",
+		"name": "福島県",
+		"nameEn": "Fukushima",
+		"region": "tohoku",
+		"description": "会津若松の歴史と磐梯山の自然。喜多方ラーメンが名物。",
+		"highlights": ["鶴ヶ城", "磐梯山", "喜多方ラーメン"],
+		"activities": ["mountains", "food", "temples"],
+		"imageUrl": "/images/fukushima.jpg"
+	},
+	{
+		"id": "ibaraki",
+		"name": "茨城県",
+		"nameEn": "Ibaraki",
+		"region": "kanto",
+		"description": "偕楽園の梅とひたち海浜公園のネモフィラ。納豆の聖地。",
+		"highlights": ["ひたち海浜公園", "偕楽園", "納豆"],
+		"activities": ["ocean", "food", "mountains"],
+		"imageUrl": "/images/ibaraki.jpg"
+	},
+	{
+		"id": "tochigi",
+		"name": "栃木県",
+		"nameEn": "Tochigi",
+		"region": "kanto",
+		"description": "日光東照宮の世界遺産と鬼怒川温泉。いちごの生産量日本一。",
+		"highlights": ["日光東照宮", "鬼怒川温泉", "いちご"],
+		"activities": ["temples", "onsen", "food"],
+		"imageUrl": "/images/tochigi.jpg"
+	},
+	{
+		"id": "gunma",
+		"name": "群馬県",
+		"nameEn": "Gunma",
+		"region": "kanto",
+		"description": "草津温泉をはじめとする名湯の宝庫。赤城山の自然も魅力。",
+		"highlights": ["草津温泉", "伊香保温泉", "赤城山"],
+		"activities": ["onsen", "mountains", "food"],
+		"imageUrl": "/images/gunma.jpg"
+	},
+	{
+		"id": "saitama",
+		"name": "埼玉県",
+		"nameEn": "Saitama",
+		"region": "kanto",
+		"description": "小江戸川越の蔵造りの街並み。秩父の自然と祭りが魅力。",
+		"highlights": ["川越", "秩父", "長瀞"],
+		"activities": ["urban", "temples", "mountains"],
+		"imageUrl": "/images/saitama.jpg"
+	},
+	{
+		"id": "chiba",
+		"name": "千葉県",
+		"nameEn": "Chiba",
+		"region": "kanto",
+		"description": "太平洋に面した海岸線と房総半島の自然。成田山も有名。",
+		"highlights": ["房総半島", "成田山新勝寺", "九十九里浜"],
+		"activities": ["ocean", "temples", "food"],
+		"imageUrl": "/images/chiba.jpg"
+	},
+	{
+		"id": "tokyo",
+		"name": "東京都",
+		"nameEn": "Tokyo",
+		"region": "kanto",
+		"description": "日本の首都。最先端の文化と伝統が共存する大都市。",
+		"highlights": ["浅草", "渋谷", "秋葉原", "東京タワー"],
+		"activities": ["urban", "food", "temples"],
+		"imageUrl": "/images/tokyo.jpg"
+	},
+	{
+		"id": "kanagawa",
+		"name": "神奈川県",
+		"nameEn": "Kanagawa",
+		"region": "kanto",
+		"description": "横浜の港町と鎌倉の古都。箱根温泉でリラックスも。",
+		"highlights": ["横浜中華街", "鎌倉大仏", "箱根温泉"],
+		"activities": ["urban", "temples", "onsen"],
+		"imageUrl": "/images/kanagawa.jpg"
+	},
+	{
+		"id": "niigata",
+		"name": "新潟県",
+		"nameEn": "Niigata",
+		"region": "chubu",
+		"description": "コシヒカリと日本酒の里。冬はスキーリゾートが賑わう。",
+		"highlights": ["越後湯沢", "佐渡島", "日本酒"],
+		"activities": ["food", "mountains", "onsen"],
+		"imageUrl": "/images/niigata.jpg"
+	},
+	{
+		"id": "toyama",
+		"name": "富山県",
+		"nameEn": "Toyama",
+		"region": "chubu",
+		"description": "立山黒部アルペンルートと富山湾の新鮮な海の幸。",
+		"highlights": ["立山黒部", "富山湾鮨", "五箇山"],
+		"activities": ["mountains", "food", "ocean"],
+		"imageUrl": "/images/toyama.jpg"
+	},
+	{
+		"id": "ishikawa",
+		"name": "石川県",
+		"nameEn": "Ishikawa",
+		"region": "chubu",
+		"description": "兼六園と金沢の伝統工芸。新鮮な海鮮と加賀料理。",
+		"highlights": ["兼六園", "金沢21世紀美術館", "近江町市場"],
+		"activities": ["urban", "food", "temples"],
+		"imageUrl": "/images/ishikawa.jpg"
+	},
+	{
+		"id": "fukui",
+		"name": "福井県",
+		"nameEn": "Fukui",
+		"region": "chubu",
+		"description": "恐竜博物館と越前がに。東尋坊の断崖絶壁は迫力満点。",
+		"highlights": ["恐竜博物館", "東尋坊", "越前がに"],
+		"activities": ["ocean", "food", "mountains"],
+		"imageUrl": "/images/fukui.jpg"
+	},
+	{
+		"id": "yamanashi",
+		"name": "山梨県",
+		"nameEn": "Yamanashi",
+		"region": "chubu",
+		"description": "富士山の絶景とワイナリー巡り。ほうとうが郷土料理。",
+		"highlights": ["富士山", "ワイナリー", "ほうとう"],
+		"activities": ["mountains", "food", "onsen"],
+		"imageUrl": "/images/yamanashi.jpg"
+	},
+	{
+		"id": "nagano",
+		"name": "長野県",
+		"nameEn": "Nagano",
+		"region": "chubu",
+		"description": "日本アルプスと善光寺。軽井沢のリゾートや温泉も。",
+		"highlights": ["善光寺", "上高地", "軽井沢"],
+		"activities": ["mountains", "temples", "onsen"],
+		"imageUrl": "/images/nagano.jpg"
+	},
+	{
+		"id": "gifu",
+		"name": "岐阜県",
+		"nameEn": "Gifu",
+		"region": "chubu",
+		"description": "白川郷の合掌造りと飛騨高山の古い町並み。",
+		"highlights": ["白川郷", "飛騨高山", "下呂温泉"],
+		"activities": ["temples", "onsen", "food"],
+		"imageUrl": "/images/gifu.jpg"
+	},
+	{
+		"id": "shizuoka",
+		"name": "静岡県",
+		"nameEn": "Shizuoka",
+		"region": "chubu",
+		"description": "富士山と駿河湾。お茶とうなぎの名産地。熱海温泉も人気。",
+		"highlights": ["富士山", "熱海温泉", "浜名湖うなぎ"],
+		"activities": ["mountains", "onsen", "food"],
+		"imageUrl": "/images/shizuoka.jpg"
+	},
+	{
+		"id": "aichi",
+		"name": "愛知県",
+		"nameEn": "Aichi",
+		"region": "chubu",
+		"description": "名古屋の独自グルメ文化。名古屋城と熱田神宮の歴史。",
+		"highlights": ["名古屋城", "ひつまぶし", "味噌カツ"],
+		"activities": ["urban", "food", "temples"],
+		"imageUrl": "/images/aichi.jpg"
+	},
+	{
+		"id": "mie",
+		"name": "三重県",
+		"nameEn": "Mie",
+		"region": "kinki",
+		"description": "伊勢神宮の聖地と志摩の美しい海。松阪牛も堪能できる。",
+		"highlights": ["伊勢神宮", "志摩", "松阪牛"],
+		"activities": ["temples", "ocean", "food"],
+		"imageUrl": "/images/mie.jpg"
+	},
+	{
+		"id": "shiga",
+		"name": "滋賀県",
+		"nameEn": "Shiga",
+		"region": "kinki",
+		"description": "琵琶湖の雄大な景色と比叡山延暦寺。近江牛も有名。",
+		"highlights": ["琵琶湖", "比叡山延暦寺", "近江牛"],
+		"activities": ["ocean", "temples", "food"],
+		"imageUrl": "/images/shiga.jpg"
+	},
+	{
+		"id": "kyoto",
+		"name": "京都府",
+		"nameEn": "Kyoto",
+		"region": "kinki",
+		"description": "千年の古都。数え切れない寺社仏閣と伝統文化の宝庫。",
+		"highlights": ["金閣寺", "伏見稲荷大社", "嵐山"],
+		"activities": ["temples", "urban", "food"],
+		"imageUrl": "/images/kyoto.jpg"
+	},
+	{
+		"id": "osaka",
+		"name": "大阪府",
+		"nameEn": "Osaka",
+		"region": "kinki",
+		"description": "天下の台所。たこ焼き、お好み焼きなどグルメの街。",
+		"highlights": ["道頓堀", "大阪城", "たこ焼き"],
+		"activities": ["urban", "food", "temples"],
+		"imageUrl": "/images/osaka.jpg"
+	},
+	{
+		"id": "hyogo",
+		"name": "兵庫県",
+		"nameEn": "Hyogo",
+		"region": "kinki",
+		"description": "神戸の異国情緒と姫路城の世界遺産。有馬温泉も。",
+		"highlights": ["姫路城", "神戸", "有馬温泉"],
+		"activities": ["urban", "temples", "onsen"],
+		"imageUrl": "/images/hyogo.jpg"
+	},
+	{
+		"id": "nara",
+		"name": "奈良県",
+		"nameEn": "Nara",
+		"region": "kinki",
+		"description": "奈良公園の鹿と東大寺の大仏。古代日本の都。",
+		"highlights": ["東大寺", "奈良公園の鹿", "春日大社"],
+		"activities": ["temples", "mountains", "food"],
+		"imageUrl": "/images/nara.jpg"
+	},
+	{
+		"id": "wakayama",
+		"name": "和歌山県",
+		"nameEn": "Wakayama",
+		"region": "kinki",
+		"description": "熊野古道の世界遺産と白浜の美しいビーチ。みかんの産地。",
+		"highlights": ["熊野古道", "白浜", "高野山"],
+		"activities": ["temples", "ocean", "onsen"],
+		"imageUrl": "/images/wakayama.jpg"
+	},
+	{
+		"id": "tottori",
+		"name": "鳥取県",
+		"nameEn": "Tottori",
+		"region": "chugoku",
+		"description": "鳥取砂丘の壮大な景色。松葉がにと梨の名産地。",
+		"highlights": ["鳥取砂丘", "松葉がに", "大山"],
+		"activities": ["ocean", "food", "mountains"],
+		"imageUrl": "/images/tottori.jpg"
+	},
+	{
+		"id": "shimane",
+		"name": "島根県",
+		"nameEn": "Shimane",
+		"region": "chugoku",
+		"description": "出雲大社の神話の地。玉造温泉と宍道湖の夕日。",
+		"highlights": ["出雲大社", "玉造温泉", "宍道湖"],
+		"activities": ["temples", "onsen", "ocean"],
+		"imageUrl": "/images/shimane.jpg"
+	},
+	{
+		"id": "okayama",
+		"name": "岡山県",
+		"nameEn": "Okayama",
+		"region": "chugoku",
+		"description": "桃太郎伝説の地。後楽園と倉敷美観地区の美しい街並み。",
+		"highlights": ["後楽園", "倉敷美観地区", "桃"],
+		"activities": ["urban", "food", "temples"],
+		"imageUrl": "/images/okayama.jpg"
+	},
+	{
+		"id": "hiroshima",
+		"name": "広島県",
+		"nameEn": "Hiroshima",
+		"region": "chugoku",
+		"description": "平和記念公園と厳島神社。お好み焼きと牡蠣が名物。",
+		"highlights": ["厳島神社", "平和記念公園", "お好み焼き"],
+		"activities": ["temples", "food", "ocean"],
+		"imageUrl": "/images/hiroshima.jpg"
+	},
+	{
+		"id": "yamaguchi",
+		"name": "山口県",
+		"nameEn": "Yamaguchi",
+		"region": "chugoku",
+		"description": "角島大橋の絶景と秋吉台のカルスト台地。ふぐの本場。",
+		"highlights": ["角島大橋", "秋吉台", "ふぐ"],
+		"activities": ["ocean", "food", "mountains"],
+		"imageUrl": "/images/yamaguchi.jpg"
+	},
+	{
+		"id": "tokushima",
+		"name": "徳島県",
+		"nameEn": "Tokushima",
+		"region": "shikoku",
+		"description": "阿波踊りの熱気と鳴門の渦潮。祖谷渓の秘境も魅力。",
+		"highlights": ["阿波踊り", "鳴門の渦潮", "祖谷渓"],
+		"activities": ["ocean", "mountains", "food"],
+		"imageUrl": "/images/tokushima.jpg"
+	},
+	{
+		"id": "kagawa",
+		"name": "香川県",
+		"nameEn": "Kagawa",
+		"region": "shikoku",
+		"description": "讃岐うどんの聖地。小豆島のオリーブと直島のアート。",
+		"highlights": ["讃岐うどん", "直島", "小豆島"],
+		"activities": ["food", "ocean", "urban"],
+		"imageUrl": "/images/kagawa.jpg"
+	},
+	{
+		"id": "ehime",
+		"name": "愛媛県",
+		"nameEn": "Ehime",
+		"region": "shikoku",
+		"description": "道後温泉の歴史ある湯と松山城。しまなみ海道も絶景。",
+		"highlights": ["道後温泉", "松山城", "しまなみ海道"],
+		"activities": ["onsen", "temples", "ocean"],
+		"imageUrl": "/images/ehime.jpg"
+	},
+	{
+		"id": "kochi",
+		"name": "高知県",
+		"nameEn": "Kochi",
+		"region": "shikoku",
+		"description": "四万十川の清流とカツオのたたき。坂本龍馬ゆかりの地。",
+		"highlights": ["四万十川", "カツオのたたき", "桂浜"],
+		"activities": ["ocean", "food", "mountains"],
+		"imageUrl": "/images/kochi.jpg"
+	},
+	{
+		"id": "fukuoka",
+		"name": "福岡県",
+		"nameEn": "Fukuoka",
+		"region": "kyushu",
+		"description": "博多ラーメンと屋台文化。アジアへの玄関口。",
+		"highlights": ["博多ラーメン", "屋台", "太宰府天満宮"],
+		"activities": ["food", "urban", "temples"],
+		"imageUrl": "/images/fukuoka.jpg"
+	},
+	{
+		"id": "saga",
+		"name": "佐賀県",
+		"nameEn": "Saga",
+		"region": "kyushu",
+		"description": "有田焼・伊万里焼の陶磁器文化。嬉野温泉と佐賀牛。",
+		"highlights": ["有田焼", "嬉野温泉", "佐賀牛"],
+		"activities": ["food", "onsen", "urban"],
+		"imageUrl": "/images/saga.jpg"
+	},
+	{
+		"id": "nagasaki",
+		"name": "長崎県",
+		"nameEn": "Nagasaki",
+		"region": "kyushu",
+		"description": "異国情緒あふれる港町。ちゃんぽんと軍艦島。",
+		"highlights": ["グラバー園", "軍艦島", "ちゃんぽん"],
+		"activities": ["urban", "ocean", "food"],
+		"imageUrl": "/images/nagasaki.jpg"
+	},
+	{
+		"id": "kumamoto",
+		"name": "熊本県",
+		"nameEn": "Kumamoto",
+		"region": "kyushu",
+		"description": "阿蘇山の雄大なカルデラと熊本城。馬刺しが名物。",
+		"highlights": ["阿蘇山", "熊本城", "馬刺し"],
+		"activities": ["mountains", "food", "temples"],
+		"imageUrl": "/images/kumamoto.jpg"
+	},
+	{
+		"id": "oita",
+		"name": "大分県",
+		"nameEn": "Oita",
+		"region": "kyushu",
+		"description": "日本一の温泉県。別府と湯布院の温泉郷が有名。",
+		"highlights": ["別府温泉", "湯布院", "地獄めぐり"],
+		"activities": ["onsen", "food", "mountains"],
+		"imageUrl": "/images/oita.jpg"
+	},
+	{
+		"id": "miyazaki",
+		"name": "宮崎県",
+		"nameEn": "Miyazaki",
+		"region": "kyushu",
+		"description": "南国ムードと高千穂峡の神話の地。チキン南蛮発祥。",
+		"highlights": ["高千穂峡", "チキン南蛮", "青島"],
+		"activities": ["ocean", "mountains", "food"],
+		"imageUrl": "/images/miyazaki.jpg"
+	},
+	{
+		"id": "kagoshima",
+		"name": "鹿児島県",
+		"nameEn": "Kagoshima",
+		"region": "kyushu",
+		"description": "桜島の活火山と屋久島の世界遺産。黒豚と焼酎も。",
+		"highlights": ["桜島", "屋久島", "黒豚"],
+		"activities": ["mountains", "ocean", "food"],
+		"imageUrl": "/images/kagoshima.jpg"
+	},
+	{
+		"id": "okinawa",
+		"name": "沖縄県",
+		"nameEn": "Okinawa",
+		"region": "kyushu",
+		"description": "美しいサンゴ礁の海と独自の琉球文化。年中温暖な楽園。",
+		"highlights": ["美ら海水族館", "首里城", "サンゴ礁の海"],
+		"activities": ["ocean", "food", "urban"],
+		"imageUrl": "/images/okinawa.jpg"
+	}
+]

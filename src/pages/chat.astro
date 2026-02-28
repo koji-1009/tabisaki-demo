@@ -1,0 +1,16 @@
+---
+import ChatPage from "../components/chat/ChatPage";
+import activitiesData from "../data/activities.json";
+import Layout from "../layouts/Layout.astro";
+import { getPrefectures } from "../services/prefectures.ts";
+import type { Activity } from "../types/index.ts";
+
+const prefectures = getPrefectures();
+const activities = activitiesData as Activity[];
+---
+
+<Layout title="チャット">
+  <main style="padding: 16px;">
+    <ChatPage client:load prefectures={prefectures} activities={activities} />
+  </main>
+</Layout>
