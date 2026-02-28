@@ -8,14 +8,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "wrangler pages dev dist",
     "check": "npx @biomejs/biome check .",
     "format": "npx @biomejs/biome check --write .",
     "test": "vitest run",
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@astrojs/node": "^9.5.4",
+    "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/react": "^4.4.2",
     "@material/material-color-utilities": "^0.4.0",
     "astro": "^5.18.0",

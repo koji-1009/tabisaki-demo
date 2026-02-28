@@ -78,8 +78,10 @@ Tone picker maps to proper MD3 DynamicScheme variants (no hacks):
 
 ## Deployment
 
-- **Adapter**: `@astrojs/node` (standalone mode)
+- **Target**: Cloudflare Pages (SSR)
+- **Adapter**: `@astrojs/cloudflare`
 - **CI**: GitHub Actions (lint, test, build check)
+- **Deploy**: Cloudflare Pages auto-deploy on push to main
 
 ## Known Issues
 
