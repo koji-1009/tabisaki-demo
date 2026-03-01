@@ -4,6 +4,75 @@ import {
 	type Prefecture,
 } from "../types/index.ts";
 
+const KEYWORD_MAP: [string, ActivityId][] = [
+	["海", "ocean"],
+	["ビーチ", "ocean"],
+	["砂浜", "ocean"],
+	["サーフ", "ocean"],
+	["島", "ocean"],
+	["ダイビング", "ocean"],
+	["山", "mountains"],
+	["ハイキング", "mountains"],
+	["登山", "mountains"],
+	["自然", "mountains"],
+	["トレッキング", "mountains"],
+	["渓谷", "mountains"],
+	["食べ", "food"],
+	["グルメ", "food"],
+	["料理", "food"],
+	["美味", "food"],
+	["ラーメン", "food"],
+	["うどん", "food"],
+	["寿司", "food"],
+	["寺", "temples"],
+	["神社", "temples"],
+	["歴史", "temples"],
+	["城", "temples"],
+	["世界遺産", "temples"],
+	["温泉", "onsen"],
+	["湯", "onsen"],
+	["露天", "onsen"],
+	["街", "urban"],
+	["ショッピング", "urban"],
+	["買い物", "urban"],
+	["カフェ", "urban"],
+	["都会", "urban"],
+];
+
+export function detectActivitiesFromText(text: string): ActivityId[] {
+	const matched = new Set<ActivityId>();
+	for (const [keyword, activity] of KEYWORD_MAP) {
+		if (text.includes(keyword)) matched.add(activity);
+	}
+	return [...matched];
+}
+
+export function buildPrefectureContext(
+	prefectures: Prefecture[],
+	activities: ActivityId[],
+	limit = 5,
+): string {
+	if (activities.length === 0) return "";
+
+	const scored = prefectures
+		.map((p) => ({
+			p,
+			score: activities.filter((a) => p.activities.includes(a)).length,
+		}))
+		.filter(({ score }) => score > 0)
+		.sort((a, b) => b.score - a.score)
+		.slice(0, limit);
+
+	return scored
+		.map(({ p }) => {
+			const acts = p.activities.join(",");
+			const dishes = p.dishes.map((d) => d.name).join("、");
+			const spots = p.spots.map((s) => s.name).join("、");
+			return `${p.name} [${acts}]: 名物=${dishes} / 見所=${spots} / ${p.access}`;
+		})
+		.join("\n");
+}
+
 export function extractActivities(text: string): ActivityId[] {
 	const match = text.match(/\[activities:([^\]]+)\]/);
 	if (!match) return [];
@@ -21,8 +90,14 @@ export function extractPrefectures(
 }
 
 export function renderMarkdown(text: string): string {
-	// Strip activity tags before rendering
-	const cleaned = text.replace(/\[activities:[^\]]*\]/g, "").trim();
+	// Strip activity tags and echoed activity-ID lists (e.g. [ocean,food])
+	const cleaned = text
+		.replace(/\[activities:[^\]]*\]/g, "")
+		.replace(
+			/\[(?:ocean|mountains|food|temples|onsen|urban)[,/\s]*(?:(?:ocean|mountains|food|temples|onsen|urban)[,/\s]*)*\]/g,
+			"",
+		)
+		.trim();
 
 	// Extract code blocks and inline code before escaping
 	const codeBlocks: string[] = [];

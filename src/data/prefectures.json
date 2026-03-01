@@ -7,7 +7,41 @@
 		"description": "日本最北端の大地。ラベンダー畑、新鮮な海鮮、スキーリゾートが魅力。",
 		"highlights": ["ラベンダー畑", "新鮮な海鮮", "スキー", "富良野"],
 		"activities": ["ocean", "mountains", "food"],
-		"imageUrl": "/images/hokkaido.jpg"
+		"imageUrl": "/images/hokkaido.jpg",
+		"dishes": [
+			{
+				"name": "海鮮丼",
+				"description": "函館・小樽の朝市で味わう新鮮なウニ・イクラ・カニの丼"
+			},
+			{
+				"name": "ジンギスカン",
+				"description": "ラム肉を専用鍋で焼く北海道のソウルフード"
+			},
+			{
+				"name": "スープカレー",
+				"description": "札幌発祥のスパイシーなスープ仕立てのカレー"
+			}
+		],
+		"spots": [
+			{
+				"name": "小樽運河",
+				"description": "石造り倉庫が並ぶレトロな運河沿いの散策路"
+			},
+			{
+				"name": "富良野ラベンダー畑",
+				"description": "夏に一面紫に染まる丘陵地帯の花畑"
+			},
+			{
+				"name": "知床半島",
+				"description": "世界自然遺産に登録された手つかずの大自然"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "summer", "reason": "ラベンダーが見頃で涼しく過ごしやすい" },
+			{ "season": "winter", "reason": "パウダースノーのスキーと雪まつり" }
+		],
+		"access": "東京から飛行機で約1時間半（新千歳空港）",
+		"mood": ["nature", "gourmet", "adventure"]
 	},
 	{
 		"id": "aomori",
@@ -17,7 +51,35 @@
 		"description": "ねぶた祭りと津軽海峡の絶景。りんごの名産地としても知られる。",
 		"highlights": ["ねぶた祭り", "りんご", "奥入瀬渓流"],
 		"activities": ["mountains", "food", "ocean"],
-		"imageUrl": "/images/aomori.jpg"
+		"imageUrl": "/images/aomori.jpg",
+		"dishes": [
+			{ "name": "いちご煮", "description": "ウニとアワビを使った贅沢な潮汁" },
+			{
+				"name": "せんべい汁",
+				"description": "南部せんべいを鍋に入れて煮込む八戸の郷土料理"
+			},
+			{
+				"name": "大間まぐろ",
+				"description": "津軽海峡で獲れる最高級の本マグロ"
+			}
+		],
+		"spots": [
+			{
+				"name": "奥入瀬渓流",
+				"description": "十和田湖から流れ出る全長14kmの美しい渓流"
+			},
+			{ "name": "弘前城", "description": "桜の名所として名高い津軽藩の居城" },
+			{
+				"name": "白神山地",
+				"description": "世界遺産のブナ原生林が広がる山岳地帯"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "summer", "reason": "ねぶた祭り（8月）と奥入瀬の新緑" },
+			{ "season": "spring", "reason": "弘前城の桜は日本屈指の名所" }
+		],
+		"access": "東京から東北新幹線で約3時間（新青森駅）",
+		"mood": ["nature", "cultural", "gourmet"]
 	},
 	{
 		"id": "iwate",
@@ -27,7 +89,38 @@
 		"description": "平泉の世界遺産と広大な自然。わんこそばの発祥の地。",
 		"highlights": ["中尊寺金色堂", "わんこそば", "龍泉洞"],
 		"activities": ["temples", "food", "mountains"],
-		"imageUrl": "/images/iwate.jpg"
+		"imageUrl": "/images/iwate.jpg",
+		"dishes": [
+			{
+				"name": "わんこそば",
+				"description": "給仕が次々と椀にそばを入れる盛岡の体験型グルメ"
+			},
+			{
+				"name": "盛岡冷麺",
+				"description": "コシの強い麺とピリ辛キムチの冷たい麺料理"
+			},
+			{ "name": "前沢牛", "description": "岩手が誇る最高級黒毛和牛" }
+		],
+		"spots": [
+			{
+				"name": "中尊寺金色堂",
+				"description": "平泉の世界遺産。金箔で覆われた藤原氏の仏堂"
+			},
+			{
+				"name": "龍泉洞",
+				"description": "日本三大鍾乳洞のひとつ。地底湖の透明度は世界有数"
+			},
+			{
+				"name": "浄土ヶ浜",
+				"description": "白い岩と青い海のコントラストが美しい海岸"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "autumn", "reason": "平泉の紅葉と中尊寺のライトアップ" },
+			{ "season": "summer", "reason": "浄土ヶ浜の海と涼しい渓谷散策" }
+		],
+		"access": "東京から東北新幹線で約2時間15分（盛岡駅）",
+		"mood": ["cultural", "adventure", "nature"]
 	},
 	{
 		"id": "miyagi",
@@ -37,7 +130,38 @@
 		"description": "仙台は杜の都。牛タンと松島の景勝が有名。",
 		"highlights": ["松島", "牛タン", "仙台七夕まつり"],
 		"activities": ["ocean", "food", "urban"],
-		"imageUrl": "/images/miyagi.jpg"
+		"imageUrl": "/images/miyagi.jpg",
+		"dishes": [
+			{
+				"name": "牛タン焼き",
+				"description": "肉厚に切った牛タンを炭火で焼く仙台名物"
+			},
+			{
+				"name": "ずんだ餅",
+				"description": "枝豆をすりつぶした鮮やかな緑色の餡で包んだ餅"
+			},
+			{
+				"name": "松島牡蠣",
+				"description": "松島湾で養殖されるクリーミーな冬の味覚"
+			}
+		],
+		"spots": [
+			{
+				"name": "松島",
+				"description": "日本三景のひとつ。260余の島々が浮かぶ絶景の湾"
+			},
+			{ "name": "瑞鳳殿", "description": "伊達政宗の霊廟。豪華絢爛な桃山建築" },
+			{
+				"name": "秋保温泉",
+				"description": "仙台の奥座敷と呼ばれる歴史ある温泉郷"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "summer", "reason": "仙台七夕まつり（8月）と松島の海" },
+			{ "season": "winter", "reason": "松島牡蠣が旬を迎え、イルミネーションも" }
+		],
+		"access": "東京から東北新幹線で約1時間半（仙台駅）",
+		"mood": ["gourmet", "relaxing", "cultural"]
 	},
 	{
 		"id": "akita",
@@ -47,7 +171,41 @@
 		"description": "なまはげと乳頭温泉。きりたんぽ鍋が冬の名物。",
 		"highlights": ["乳頭温泉", "なまはげ", "きりたんぽ鍋"],
 		"activities": ["onsen", "food", "mountains"],
-		"imageUrl": "/images/akita.jpg"
+		"imageUrl": "/images/akita.jpg",
+		"dishes": [
+			{
+				"name": "きりたんぽ鍋",
+				"description": "つぶした新米を棒に巻いて焼き、鍋で煮込む冬の郷土料理"
+			},
+			{
+				"name": "稲庭うどん",
+				"description": "手延べ製法の細くなめらかな乾麺うどん"
+			},
+			{
+				"name": "ハタハタ寿司",
+				"description": "秋田の県魚ハタハタを米と麹で漬けた熟れ鮨"
+			}
+		],
+		"spots": [
+			{
+				"name": "乳頭温泉郷",
+				"description": "ブナの森に囲まれた7つの秘湯が集まる温泉郷"
+			},
+			{
+				"name": "角館武家屋敷",
+				"description": "みちのくの小京都と呼ばれる桜並木の武家屋敷通り"
+			},
+			{
+				"name": "田沢湖",
+				"description": "日本一深い湖。辰子姫伝説が残る神秘的な青い水面"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "winter", "reason": "なまはげ行事ときりたんぽ鍋、雪見温泉" },
+			{ "season": "spring", "reason": "角館の枝垂れ桜が満開に" }
+		],
+		"access": "東京から秋田新幹線で約3時間45分（秋田駅）",
+		"mood": ["relaxing", "cultural", "nature"]
 	},
 	{
 		"id": "yamagata",
@@ -57,7 +215,41 @@
 		"description": "蔵王の樹氷とさくらんぼ。銀山温泉の幻想的な景観。",
 		"highlights": ["蔵王樹氷", "さくらんぼ", "銀山温泉"],
 		"activities": ["mountains", "onsen", "food"],
-		"imageUrl": "/images/yamagata.jpg"
+		"imageUrl": "/images/yamagata.jpg",
+		"dishes": [
+			{
+				"name": "芋煮",
+				"description": "里芋と牛肉を醤油で煮込む秋の河原で楽しむ鍋"
+			},
+			{
+				"name": "米沢牛",
+				"description": "日本三大和牛のひとつに数えられるブランド牛"
+			},
+			{
+				"name": "さくらんぼ",
+				"description": "生産量日本一。佐藤錦は初夏の宝石"
+			}
+		],
+		"spots": [
+			{
+				"name": "銀山温泉",
+				"description": "大正ロマン漂う木造旅館が並ぶ雪景色の温泉街"
+			},
+			{
+				"name": "蔵王の樹氷",
+				"description": "冬季限定の自然のアート。スノーモンスターとも"
+			},
+			{
+				"name": "山寺（立石寺）",
+				"description": "1015段の石段を登った先にある絶景の山岳寺院"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "winter", "reason": "蔵王の樹氷と銀山温泉の雪景色" },
+			{ "season": "summer", "reason": "さくらんぼ狩りと涼しい山寺散策" }
+		],
+		"access": "東京から山形新幹線で約2時間45分（山形駅）",
+		"mood": ["romantic", "nature", "gourmet"]
 	},
 	{
 		"id": "fukushima",
@@ -67,7 +259,41 @@
 		"description": "会津若松の歴史と磐梯山の自然。喜多方ラーメンが名物。",
 		"highlights": ["鶴ヶ城", "磐梯山", "喜多方ラーメン"],
 		"activities": ["mountains", "food", "temples"],
-		"imageUrl": "/images/fukushima.jpg"
+		"imageUrl": "/images/fukushima.jpg",
+		"dishes": [
+			{
+				"name": "喜多方ラーメン",
+				"description": "ちぢれ太麺とあっさり醤油スープの朝ラー文化"
+			},
+			{
+				"name": "こづゆ",
+				"description": "会津の祝い膳に欠かせないホタテ出汁の具沢山汁"
+			},
+			{
+				"name": "円盤餃子",
+				"description": "円形に並べてパリッと焼く福島市のご当地餃子"
+			}
+		],
+		"spots": [
+			{
+				"name": "鶴ヶ城",
+				"description": "赤瓦が美しい会津藩の名城。桜の季節は圧巻"
+			},
+			{
+				"name": "五色沼",
+				"description": "裏磐梯にある色彩豊かな湖沼群のトレッキングコース"
+			},
+			{
+				"name": "大内宿",
+				"description": "茅葺き屋根の宿場町が残る江戸時代の街並み"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "autumn", "reason": "五色沼と磐梯山の紅葉が見事" },
+			{ "season": "spring", "reason": "鶴ヶ城の桜と三春滝桜" }
+		],
+		"access": "東京から東北新幹線で約1時間20分（郡山駅）",
+		"mood": ["cultural", "nature", "gourmet"]
 	},
 	{
 		"id": "ibaraki",
@@ -77,7 +303,41 @@
 		"description": "偕楽園の梅とひたち海浜公園のネモフィラ。納豆の聖地。",
 		"highlights": ["ひたち海浜公園", "偕楽園", "納豆"],
 		"activities": ["ocean", "food", "mountains"],
-		"imageUrl": "/images/ibaraki.jpg"
+		"imageUrl": "/images/ibaraki.jpg",
+		"dishes": [
+			{
+				"name": "あんこう鍋",
+				"description": "冬の味覚。あん肝をベースにした濃厚な鍋"
+			},
+			{
+				"name": "水戸納豆",
+				"description": "小粒で粘りの強い茨城を代表する発酵食品"
+			},
+			{
+				"name": "干し芋",
+				"description": "ひたちなか市が生産量日本一。素朴な甘さのおやつ"
+			}
+		],
+		"spots": [
+			{
+				"name": "ひたち海浜公園",
+				"description": "春のネモフィラと秋のコキアが丘一面を染める花の公園"
+			},
+			{
+				"name": "偕楽園",
+				"description": "日本三名園のひとつ。3000本の梅が咲き誇る"
+			},
+			{
+				"name": "袋田の滝",
+				"description": "日本三名瀑のひとつ。四段に流れ落ちる壮大な滝"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "ネモフィラの青い丘と偕楽園の梅" },
+			{ "season": "autumn", "reason": "コキアの紅葉と袋田の滝の秋景色" }
+		],
+		"access": "東京から特急ひたちで約1時間10分（水戸駅）",
+		"mood": ["nature", "family", "relaxing"]
 	},
 	{
 		"id": "tochigi",
@@ -87,7 +347,41 @@
 		"description": "日光東照宮の世界遺産と鬼怒川温泉。いちごの生産量日本一。",
 		"highlights": ["日光東照宮", "鬼怒川温泉", "いちご"],
 		"activities": ["temples", "onsen", "food"],
-		"imageUrl": "/images/tochigi.jpg"
+		"imageUrl": "/images/tochigi.jpg",
+		"dishes": [
+			{
+				"name": "宇都宮餃子",
+				"description": "消費量日本一を誇る餃子の街の焼き・水・揚げ餃子"
+			},
+			{
+				"name": "日光湯波",
+				"description": "京都の湯葉より厚みのある日光名物の大豆料理"
+			},
+			{
+				"name": "とちおとめ",
+				"description": "栃木生まれの甘みと酸味のバランスが絶妙なイチゴ"
+			}
+		],
+		"spots": [
+			{
+				"name": "日光東照宮",
+				"description": "徳川家康を祀る世界遺産。豪華な彫刻と眠り猫"
+			},
+			{
+				"name": "鬼怒川温泉",
+				"description": "渓谷沿いに旅館が並ぶ関東有数の温泉リゾート"
+			},
+			{
+				"name": "あしかがフラワーパーク",
+				"description": "大藤棚のライトアップが幻想的な花のテーマパーク"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "autumn", "reason": "日光の紅葉といろは坂のドライブ" },
+			{ "season": "spring", "reason": "あしかがフラワーパークの藤と苺狩り" }
+		],
+		"access": "東京から東北新幹線で約50分（宇都宮駅）、日光まで約2時間",
+		"mood": ["cultural", "relaxing", "family"]
 	},
 	{
 		"id": "gunma",
@@ -97,7 +391,41 @@
 		"description": "草津温泉をはじめとする名湯の宝庫。赤城山の自然も魅力。",
 		"highlights": ["草津温泉", "伊香保温泉", "赤城山"],
 		"activities": ["onsen", "mountains", "food"],
-		"imageUrl": "/images/gunma.jpg"
+		"imageUrl": "/images/gunma.jpg",
+		"dishes": [
+			{
+				"name": "水沢うどん",
+				"description": "日本三大うどんのひとつ。透明感のあるコシの強い麺"
+			},
+			{
+				"name": "焼きまんじゅう",
+				"description": "甘い味噌だれを塗って焼いた群馬の屋台グルメ"
+			},
+			{
+				"name": "おっきりこみ",
+				"description": "幅広の生麺を野菜と煮込む上州の郷土料理"
+			}
+		],
+		"spots": [
+			{
+				"name": "草津温泉",
+				"description": "日本三名泉のひとつ。湯畑を中心とした温泉街"
+			},
+			{
+				"name": "伊香保温泉",
+				"description": "365段の石段街が情緒ある上州の名湯"
+			},
+			{
+				"name": "尾瀬",
+				"description": "本州最大の高層湿原。水芭蕉やニッコウキスゲが咲く"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "winter", "reason": "雪見の草津温泉と万座温泉スキー" },
+			{ "season": "summer", "reason": "尾瀬のハイキングと避暑" }
+		],
+		"access": "東京から上越新幹線で約1時間（高崎駅）、草津まで約3時間",
+		"mood": ["relaxing", "nature", "active"]
 	},
 	{
 		"id": "saitama",
@@ -107,7 +435,44 @@
 		"description": "小江戸川越の蔵造りの街並み。秩父の自然と祭りが魅力。",
 		"highlights": ["川越", "秩父", "長瀞"],
 		"activities": ["urban", "temples", "mountains"],
-		"imageUrl": "/images/saitama.jpg"
+		"imageUrl": "/images/saitama.jpg",
+		"dishes": [
+			{
+				"name": "川越の芋菓子",
+				"description": "さつまいもを使った芋けんぴやスイートポテトの名店が多数"
+			},
+			{
+				"name": "秩父味噌豚丼",
+				"description": "味噌だれで焼いた豚肉をご飯に載せた秩父のB級グルメ"
+			},
+			{
+				"name": "草加せんべい",
+				"description": "江戸時代から続く硬焼きの醤油せんべい"
+			}
+		],
+		"spots": [
+			{
+				"name": "川越（小江戸）",
+				"description": "蔵造りの商家が並ぶ街並みと時の鐘がシンボル"
+			},
+			{
+				"name": "長瀞",
+				"description": "荒川の岩畳とライン下りが楽しめる渓谷の景勝地"
+			},
+			{
+				"name": "秩父神社",
+				"description": "秩父夜祭で有名な2100年の歴史を持つ古社"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "autumn",
+				"reason": "長瀞の紅葉ライン下りと秩父夜祭（12月）"
+			},
+			{ "season": "spring", "reason": "芝桜の丘と川越の散策日和" }
+		],
+		"access": "東京（池袋）から東武東上線で約30分（川越）、西武線で約80分（秩父）",
+		"mood": ["family", "cultural", "active"]
 	},
 	{
 		"id": "chiba",
@@ -117,7 +482,41 @@
 		"description": "太平洋に面した海岸線と房総半島の自然。成田山も有名。",
 		"highlights": ["房総半島", "成田山新勝寺", "九十九里浜"],
 		"activities": ["ocean", "temples", "food"],
-		"imageUrl": "/images/chiba.jpg"
+		"imageUrl": "/images/chiba.jpg",
+		"dishes": [
+			{
+				"name": "なめろう",
+				"description": "新鮮なアジを味噌と薬味で叩いた房総の漁師めし"
+			},
+			{
+				"name": "勝浦タンタンメン",
+				"description": "ラー油ベースの醤油スープが特徴の辛い担々麺"
+			},
+			{
+				"name": "落花生",
+				"description": "千葉は生産量日本一。茹で落花生は絶品"
+			}
+		],
+		"spots": [
+			{
+				"name": "成田山新勝寺",
+				"description": "年間1000万人が参拝する関東屈指の古刹"
+			},
+			{
+				"name": "鋸山",
+				"description": "地獄のぞきの展望台と日本一の大仏がある山"
+			},
+			{
+				"name": "九十九里浜",
+				"description": "全長66kmの砂浜が続く太平洋岸のロングビーチ"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "summer", "reason": "九十九里浜の海水浴とサーフィン" },
+			{ "season": "spring", "reason": "房総の菜の花畑と温暖な気候" }
+		],
+		"access": "東京から特急で約1時間（成田）、アクアラインで約1時間（房総）",
+		"mood": ["family", "nature", "active"]
 	},
 	{
 		"id": "tokyo",
@@ -127,7 +526,44 @@
 		"description": "日本の首都。最先端の文化と伝統が共存する大都市。",
 		"highlights": ["浅草", "渋谷", "秋葉原", "東京タワー"],
 		"activities": ["urban", "food", "temples"],
-		"imageUrl": "/images/tokyo.jpg"
+		"imageUrl": "/images/tokyo.jpg",
+		"dishes": [
+			{
+				"name": "もんじゃ焼き",
+				"description": "月島が聖地。鉄板で焼きながら食べる下町グルメ"
+			},
+			{
+				"name": "江戸前寿司",
+				"description": "握り寿司の原点。ネタに仕事を施す伝統の技"
+			},
+			{
+				"name": "深大寺そば",
+				"description": "調布の深大寺門前で味わう東京の蕎麦文化"
+			}
+		],
+		"spots": [
+			{ "name": "浅草寺", "description": "雷門の大提灯で有名な東京最古の寺院" },
+			{
+				"name": "明治神宮",
+				"description": "都心の森に鎮座する初詣参拝者数日本一の神社"
+			},
+			{
+				"name": "築地場外市場",
+				"description": "新鮮な魚介と食べ歩きが楽しい東京の台所"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "spring",
+				"reason": "桜の名所が多数。上野・目黒川・千鳥ヶ淵"
+			},
+			{
+				"season": "autumn",
+				"reason": "神宮外苑のイチョウ並木と過ごしやすい気候"
+			}
+		],
+		"access": "日本の交通の中心。新幹線・空路の起点",
+		"mood": ["urban", "gourmet", "cultural"]
 	},
 	{
 		"id": "kanagawa",
@@ -137,7 +573,41 @@
 		"description": "横浜の港町と鎌倉の古都。箱根温泉でリラックスも。",
 		"highlights": ["横浜中華街", "鎌倉大仏", "箱根温泉"],
 		"activities": ["urban", "temples", "onsen"],
-		"imageUrl": "/images/kanagawa.jpg"
+		"imageUrl": "/images/kanagawa.jpg",
+		"dishes": [
+			{
+				"name": "横浜中華街の中華料理",
+				"description": "日本最大の中華街で味わう本格的な点心と料理"
+			},
+			{
+				"name": "しらす丼",
+				"description": "湘南・江ノ島名物の生しらすを山盛りにした丼"
+			},
+			{
+				"name": "横須賀海軍カレー",
+				"description": "海軍レシピを再現した昔ながらの日本カレー"
+			}
+		],
+		"spots": [
+			{
+				"name": "鎌倉大仏",
+				"description": "高徳院にある高さ13mの国宝阿弥陀如来像"
+			},
+			{
+				"name": "箱根",
+				"description": "芦ノ湖と富士山の絶景、美術館めぐり、温泉"
+			},
+			{
+				"name": "江ノ島",
+				"description": "湘南のシンボル。展望灯台から富士山と海が一望"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "summer", "reason": "湘南の海とビーチカルチャー" },
+			{ "season": "autumn", "reason": "箱根の紅葉と鎌倉のハイキング" }
+		],
+		"access": "東京から約30分（横浜）、約1時間（鎌倉）、約1時間半（箱根）",
+		"mood": ["romantic", "cultural", "relaxing"]
 	},
 	{
 		"id": "niigata",
@@ -147,7 +617,44 @@
 		"description": "コシヒカリと日本酒の里。冬はスキーリゾートが賑わう。",
 		"highlights": ["越後湯沢", "佐渡島", "日本酒"],
 		"activities": ["food", "mountains", "onsen"],
-		"imageUrl": "/images/niigata.jpg"
+		"imageUrl": "/images/niigata.jpg",
+		"dishes": [
+			{
+				"name": "へぎそば",
+				"description": "布海苔をつなぎに使った独特のコシがある蕎麦"
+			},
+			{
+				"name": "タレかつ丼",
+				"description": "薄めのカツを甘辛い醤油だれにくぐらせた新潟流かつ丼"
+			},
+			{
+				"name": "日本酒",
+				"description": "酒蔵数日本一。八海山・越乃寒梅など銘酒揃い"
+			}
+		],
+		"spots": [
+			{
+				"name": "佐渡島",
+				"description": "金山の歴史とトキの生息地。太鼓芸能の島"
+			},
+			{
+				"name": "越後湯沢",
+				"description": "川端康成『雪国』の舞台。スキーと温泉の街"
+			},
+			{
+				"name": "星峠の棚田",
+				"description": "水鏡が美しい日本の原風景のような棚田"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "winter",
+				"reason": "豪雪地帯のパウダースノーでスキー・温泉三昧"
+			},
+			{ "season": "autumn", "reason": "新米の季節と棚田の黄金色の風景" }
+		],
+		"access": "東京から上越新幹線で約1時間40分（越後湯沢）、約2時間（新潟駅）",
+		"mood": ["gourmet", "active", "nature"]
 	},
 	{
 		"id": "toyama",
@@ -157,7 +664,41 @@
 		"description": "立山黒部アルペンルートと富山湾の新鮮な海の幸。",
 		"highlights": ["立山黒部", "富山湾鮨", "五箇山"],
 		"activities": ["mountains", "food", "ocean"],
-		"imageUrl": "/images/toyama.jpg"
+		"imageUrl": "/images/toyama.jpg",
+		"dishes": [
+			{
+				"name": "富山湾鮨",
+				"description": "富山湾の天然魚を使った地物ネタの握り寿司"
+			},
+			{
+				"name": "白えび",
+				"description": "富山湾でしか獲れない透明な宝石。かき揚げや刺身で"
+			},
+			{
+				"name": "ブラックラーメン",
+				"description": "濃い醤油色のスープが特徴の富山ご当地ラーメン"
+			}
+		],
+		"spots": [
+			{
+				"name": "立山黒部アルペンルート",
+				"description": "標高3000m級の山岳を6つの乗り物で横断する絶景ルート"
+			},
+			{
+				"name": "五箇山合掌造り",
+				"description": "世界遺産の合掌造り集落。白川郷より静かで趣がある"
+			},
+			{
+				"name": "雨晴海岸",
+				"description": "富山湾越しに立山連峰を望む絶景の海岸"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "アルペンルートの雪の大谷（4〜6月）" },
+			{ "season": "winter", "reason": "寒ブリと白えびの旬。五箇山の雪景色" }
+		],
+		"access": "東京から北陸新幹線で約2時間10分（富山駅）",
+		"mood": ["adventure", "gourmet", "nature"]
 	},
 	{
 		"id": "ishikawa",
@@ -167,7 +708,38 @@
 		"description": "兼六園と金沢の伝統工芸。新鮮な海鮮と加賀料理。",
 		"highlights": ["兼六園", "金沢21世紀美術館", "近江町市場"],
 		"activities": ["urban", "food", "temples"],
-		"imageUrl": "/images/ishikawa.jpg"
+		"imageUrl": "/images/ishikawa.jpg",
+		"dishes": [
+			{
+				"name": "金沢おでん",
+				"description": "カニ面や車麩など金沢ならではの種が入るおでん"
+			},
+			{ "name": "能登丼", "description": "能登の食材をふんだんに使った海鮮丼" },
+			{
+				"name": "治部煮",
+				"description": "鴨肉にわさびを添える加賀藩伝統の煮物"
+			}
+		],
+		"spots": [
+			{
+				"name": "兼六園",
+				"description": "日本三名園のひとつ。四季折々の美しさを見せる回遊式庭園"
+			},
+			{
+				"name": "金沢21世紀美術館",
+				"description": "レアンドロのプールなど体験型の現代アート美術館"
+			},
+			{
+				"name": "ひがし茶屋街",
+				"description": "紅殻格子の茶屋が並ぶ金沢の風情ある花街"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "winter", "reason": "兼六園の雪吊りとカニの季節" },
+			{ "season": "autumn", "reason": "紅葉の兼六園と秋の味覚" }
+		],
+		"access": "東京から北陸新幹線で約2時間半（金沢駅）",
+		"mood": ["cultural", "gourmet", "romantic"]
 	},
 	{
 		"id": "fukui",
@@ -177,7 +749,41 @@
 		"description": "恐竜博物館と越前がに。東尋坊の断崖絶壁は迫力満点。",
 		"highlights": ["恐竜博物館", "東尋坊", "越前がに"],
 		"activities": ["ocean", "food", "mountains"],
-		"imageUrl": "/images/fukui.jpg"
+		"imageUrl": "/images/fukui.jpg",
+		"dishes": [
+			{
+				"name": "越前がに",
+				"description": "冬の王者。水揚げされた漁港で食べる茹でがに"
+			},
+			{
+				"name": "おろしそば",
+				"description": "大根おろしをたっぷりかけて食べる福井流の蕎麦"
+			},
+			{
+				"name": "ソースカツ丼",
+				"description": "ウスターソースにくぐらせたカツを載せる福井のかつ丼"
+			}
+		],
+		"spots": [
+			{
+				"name": "福井県立恐竜博物館",
+				"description": "世界三大恐竜博物館のひとつ。44体の全身骨格は圧巻"
+			},
+			{
+				"name": "東尋坊",
+				"description": "高さ25mの断崖が1km続く日本海屈指の景勝地"
+			},
+			{
+				"name": "永平寺",
+				"description": "曹洞宗の大本山。770年以上の歴史を持つ修行道場"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "winter", "reason": "越前がに解禁（11月〜3月）と雪の永平寺" },
+			{ "season": "summer", "reason": "東尋坊の迫力と恐竜博物館で涼しく" }
+		],
+		"access": "東京から北陸新幹線で約3時間（敦賀経由、福井駅）",
+		"mood": ["family", "adventure", "gourmet"]
 	},
 	{
 		"id": "yamanashi",
@@ -187,7 +793,47 @@
 		"description": "富士山の絶景とワイナリー巡り。ほうとうが郷土料理。",
 		"highlights": ["富士山", "ワイナリー", "ほうとう"],
 		"activities": ["mountains", "food", "onsen"],
-		"imageUrl": "/images/yamanashi.jpg"
+		"imageUrl": "/images/yamanashi.jpg",
+		"dishes": [
+			{
+				"name": "ほうとう",
+				"description": "太い平打ち麺をかぼちゃと味噌で煮込む甲州の郷土鍋"
+			},
+			{
+				"name": "鶏もつ煮",
+				"description": "甲府のB級グルメ。甘辛く煮込んだ鶏のモツ"
+			},
+			{
+				"name": "勝沼ワイン",
+				"description": "日本ワイン発祥の地。甲州ぶどうの白ワイン"
+			}
+		],
+		"spots": [
+			{
+				"name": "富士五湖",
+				"description": "富士山を水面に映す5つの湖。逆さ富士の絶景"
+			},
+			{
+				"name": "昇仙峡",
+				"description": "花崗岩の奇岩と渓谷美が続く日本一の渓谷"
+			},
+			{
+				"name": "勝沼ワイナリー群",
+				"description": "80以上のワイナリーが集まる日本のワイン産地"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "autumn",
+				"reason": "富士山と紅葉のコラボレーション。ぶどうの季節"
+			},
+			{
+				"season": "winter",
+				"reason": "空気が澄んで富士山がくっきり。ほうとうが美味しい"
+			}
+		],
+		"access": "東京から特急かいじで約1時間半（甲府駅）、車で約1時間半",
+		"mood": ["nature", "gourmet", "romantic"]
 	},
 	{
 		"id": "nagano",
@@ -197,7 +843,44 @@
 		"description": "日本アルプスと善光寺。軽井沢のリゾートや温泉も。",
 		"highlights": ["善光寺", "上高地", "軽井沢"],
 		"activities": ["mountains", "temples", "onsen"],
-		"imageUrl": "/images/nagano.jpg"
+		"imageUrl": "/images/nagano.jpg",
+		"dishes": [
+			{
+				"name": "信州そば",
+				"description": "澄んだ水と寒暖差で育つ蕎麦を使った香り高い手打ちそば"
+			},
+			{
+				"name": "おやき",
+				"description": "野沢菜やあんこを小麦粉の皮で包んで焼いた信州の軽食"
+			},
+			{
+				"name": "馬刺し",
+				"description": "赤身の旨みが際立つ信州の伝統的な馬肉料理"
+			}
+		],
+		"spots": [
+			{
+				"name": "上高地",
+				"description": "穂高連峰と梓川の清流が織りなす日本屈指の山岳リゾート"
+			},
+			{
+				"name": "善光寺",
+				"description": "1400年の歴史を持つ無宗派の名刹。お戒壇めぐり"
+			},
+			{
+				"name": "軽井沢",
+				"description": "避暑地として発展した高原リゾート。ショッピングも"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "summer", "reason": "上高地のハイキングと軽井沢の避暑" },
+			{
+				"season": "winter",
+				"reason": "白馬・志賀高原のスキーと地獄谷温泉の雪猿"
+			}
+		],
+		"access": "東京から北陸新幹線で約1時間20分（長野駅）、軽井沢まで約1時間",
+		"mood": ["nature", "active", "relaxing"]
 	},
 	{
 		"id": "gifu",
@@ -207,7 +890,44 @@
 		"description": "白川郷の合掌造りと飛騨高山の古い町並み。",
 		"highlights": ["白川郷", "飛騨高山", "下呂温泉"],
 		"activities": ["temples", "onsen", "food"],
-		"imageUrl": "/images/gifu.jpg"
+		"imageUrl": "/images/gifu.jpg",
+		"dishes": [
+			{
+				"name": "飛騨牛",
+				"description": "きめ細かい霜降りが特徴の岐阜を代表するブランド牛"
+			},
+			{
+				"name": "高山ラーメン",
+				"description": "鶏ガラ醤油の懐かしい味わいの飛騨高山のご当地麺"
+			},
+			{
+				"name": "鶏ちゃん",
+				"description": "味噌や醤油で味付けした鶏肉と野菜を焼く郷土料理"
+			}
+		],
+		"spots": [
+			{
+				"name": "白川郷",
+				"description": "世界遺産の合掌造り集落。冬のライトアップは幻想的"
+			},
+			{
+				"name": "飛騨高山の古い町並み",
+				"description": "江戸時代の城下町の風情を残す三筋の町並み"
+			},
+			{
+				"name": "下呂温泉",
+				"description": "日本三名泉のひとつ。とろみのあるアルカリ性の美肌の湯"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "winter",
+				"reason": "白川郷のライトアップと下呂温泉の雪見風呂"
+			},
+			{ "season": "spring", "reason": "高山祭（4月）と桜の古い町並み" }
+		],
+		"access": "東京から名古屋経由で約4時間（高山駅）、北陸新幹線+バスで白川郷",
+		"mood": ["cultural", "romantic", "relaxing"]
 	},
 	{
 		"id": "shizuoka",
@@ -217,7 +937,44 @@
 		"description": "富士山と駿河湾。お茶とうなぎの名産地。熱海温泉も人気。",
 		"highlights": ["富士山", "熱海温泉", "浜名湖うなぎ"],
 		"activities": ["mountains", "onsen", "food"],
-		"imageUrl": "/images/shizuoka.jpg"
+		"imageUrl": "/images/shizuoka.jpg",
+		"dishes": [
+			{
+				"name": "浜松餃子",
+				"description": "もやし付きの円形盛りが特徴の浜松ご当地餃子"
+			},
+			{
+				"name": "静岡おでん",
+				"description": "黒はんぺんが入った黒い出汁のおでん。青のり・だし粉で"
+			},
+			{
+				"name": "桜エビ",
+				"description": "駿河湾でしか獲れない希少な小エビ。かき揚げが絶品"
+			}
+		],
+		"spots": [
+			{
+				"name": "三保松原",
+				"description": "富士山を望む松林が続く世界遺産の景勝地"
+			},
+			{
+				"name": "熱海温泉",
+				"description": "東京から近い人気リゾート。花火大会と温泉街"
+			},
+			{
+				"name": "大井川鉄道",
+				"description": "SLとアプト式鉄道に乗って奥大井の渓谷を走る"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "winter",
+				"reason": "空気が澄んで富士山が美しい。温泉シーズン"
+			},
+			{ "season": "spring", "reason": "桜エビの春漁と河津桜（2月〜3月）" }
+		],
+		"access": "東京から東海道新幹線で約1時間（静岡駅）、熱海まで約45分",
+		"mood": ["relaxing", "gourmet", "nature"]
 	},
 	{
 		"id": "aichi",
@@ -227,7 +984,41 @@
 		"description": "名古屋の独自グルメ文化。名古屋城と熱田神宮の歴史。",
 		"highlights": ["名古屋城", "ひつまぶし", "味噌カツ"],
 		"activities": ["urban", "food", "temples"],
-		"imageUrl": "/images/aichi.jpg"
+		"imageUrl": "/images/aichi.jpg",
+		"dishes": [
+			{
+				"name": "ひつまぶし",
+				"description": "うなぎを三つの食べ方で楽しむ名古屋発祥の贅沢めし"
+			},
+			{
+				"name": "味噌カツ",
+				"description": "八丁味噌の甘辛いソースをかけた名古屋の定番"
+			},
+			{
+				"name": "手羽先",
+				"description": "甘辛いタレとスパイスで味付けした名古屋の居酒屋定番"
+			}
+		],
+		"spots": [
+			{
+				"name": "名古屋城",
+				"description": "金のシャチホコが輝く尾張徳川家の居城"
+			},
+			{
+				"name": "熱田神宮",
+				"description": "三種の神器・草薙の剣を祀る格式高い神社"
+			},
+			{
+				"name": "大須商店街",
+				"description": "古着・サブカル・グルメが混在する活気ある商店街"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "名古屋城の桜と過ごしやすい気候" },
+			{ "season": "autumn", "reason": "香嵐渓の紅葉と食欲の秋" }
+		],
+		"access": "東京から東海道新幹線で約1時間40分（名古屋駅）",
+		"mood": ["urban", "gourmet", "cultural"]
 	},
 	{
 		"id": "mie",
@@ -237,7 +1028,41 @@
 		"description": "伊勢神宮の聖地と志摩の美しい海。松阪牛も堪能できる。",
 		"highlights": ["伊勢神宮", "志摩", "松阪牛"],
 		"activities": ["temples", "ocean", "food"],
-		"imageUrl": "/images/mie.jpg"
+		"imageUrl": "/images/mie.jpg",
+		"dishes": [
+			{
+				"name": "松阪牛",
+				"description": "日本三大和牛のひとつ。とろける霜降りの最高級牛肉"
+			},
+			{
+				"name": "伊勢うどん",
+				"description": "極太のやわらか麺に濃い醤油だれを絡めて食べるうどん"
+			},
+			{
+				"name": "てこね寿司",
+				"description": "カツオの漬けをすし飯にのせた志摩の漁師めし"
+			}
+		],
+		"spots": [
+			{
+				"name": "伊勢神宮",
+				"description": "日本の神社の頂点。内宮・外宮とおかげ横丁"
+			},
+			{
+				"name": "夫婦岩",
+				"description": "しめ縄で結ばれた二つの岩。縁結びのパワースポット"
+			},
+			{
+				"name": "鳥羽水族館",
+				"description": "日本一の飼育種類数を誇る水族館。ジュゴンに会える"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "伊勢神宮参拝と桜、穏やかな気候" },
+			{ "season": "autumn", "reason": "伊勢海老の旬と観光しやすい気温" }
+		],
+		"access": "東京から東海道新幹線+近鉄で約3時間（伊勢市駅）",
+		"mood": ["cultural", "gourmet", "romantic"]
 	},
 	{
 		"id": "shiga",
@@ -247,7 +1072,41 @@
 		"description": "琵琶湖の雄大な景色と比叡山延暦寺。近江牛も有名。",
 		"highlights": ["琵琶湖", "比叡山延暦寺", "近江牛"],
 		"activities": ["ocean", "temples", "food"],
-		"imageUrl": "/images/shiga.jpg"
+		"imageUrl": "/images/shiga.jpg",
+		"dishes": [
+			{
+				"name": "近江牛",
+				"description": "日本最古のブランド牛。400年の歴史を持つ霜降り肉"
+			},
+			{
+				"name": "鮒寿司",
+				"description": "琵琶湖のニゴロブナを使った日本最古の発酵寿司"
+			},
+			{
+				"name": "焼鯖そうめん",
+				"description": "長浜名物。甘辛く煮た焼き鯖をそうめんにのせた料理"
+			}
+		],
+		"spots": [
+			{
+				"name": "比叡山延暦寺",
+				"description": "天台宗総本山の世界遺産。琵琶湖を見下ろす山上寺院"
+			},
+			{
+				"name": "彦根城",
+				"description": "国宝天守を持つ江戸時代の現存城。ひこにゃんの城"
+			},
+			{
+				"name": "メタセコイア並木",
+				"description": "高島市の全長2.4kmのまっすぐな並木道。四季で表情が変わる"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "autumn", "reason": "メタセコイア並木の紅葉と比叡山の紅葉" },
+			{ "season": "summer", "reason": "琵琶湖でのウォータースポーツと避暑" }
+		],
+		"access": "東京から東海道新幹線+在来線で約2時間半（大津駅）",
+		"mood": ["cultural", "nature", "relaxing"]
 	},
 	{
 		"id": "kyoto",
@@ -257,7 +1116,44 @@
 		"description": "千年の古都。数え切れない寺社仏閣と伝統文化の宝庫。",
 		"highlights": ["金閣寺", "伏見稲荷大社", "嵐山"],
 		"activities": ["temples", "urban", "food"],
-		"imageUrl": "/images/kyoto.jpg"
+		"imageUrl": "/images/kyoto.jpg",
+		"dishes": [
+			{
+				"name": "湯豆腐",
+				"description": "南禅寺界隈の名物。昆布出汁で温めた上質な豆腐"
+			},
+			{
+				"name": "おばんざい",
+				"description": "京都の家庭料理。旬の食材を使った素朴なおかずの数々"
+			},
+			{
+				"name": "抹茶スイーツ",
+				"description": "宇治抹茶を使ったパフェ、わらび餅、ソフトクリーム"
+			}
+		],
+		"spots": [
+			{
+				"name": "伏見稲荷大社",
+				"description": "千本鳥居が連なる幻想的な参道。外国人人気No.1"
+			},
+			{
+				"name": "嵐山竹林",
+				"description": "天を覆う竹林の小径。嵯峨野トロッコ列車も"
+			},
+			{
+				"name": "金閣寺",
+				"description": "金箔に輝く舎利殿が池に映る世界遺産の寺院"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "autumn",
+				"reason": "紅葉の名所が無数。東福寺・永観堂が特に見事"
+			},
+			{ "season": "spring", "reason": "桜と寺社の組み合わせは京都ならでは" }
+		],
+		"access": "東京から東海道新幹線で約2時間15分（京都駅）",
+		"mood": ["cultural", "romantic", "gourmet"]
 	},
 	{
 		"id": "osaka",
@@ -267,7 +1163,41 @@
 		"description": "天下の台所。たこ焼き、お好み焼きなどグルメの街。",
 		"highlights": ["道頓堀", "大阪城", "たこ焼き"],
 		"activities": ["urban", "food", "temples"],
-		"imageUrl": "/images/osaka.jpg"
+		"imageUrl": "/images/osaka.jpg",
+		"dishes": [
+			{
+				"name": "たこ焼き",
+				"description": "外はカリッ、中はトロッ。大阪のソウルフード"
+			},
+			{
+				"name": "お好み焼き",
+				"description": "具材たっぷりの生地を鉄板で焼く粉もん文化の代表"
+			},
+			{
+				"name": "串カツ",
+				"description": "新世界が本場。ソース二度漬け禁止の大阪下町グルメ"
+			}
+		],
+		"spots": [
+			{
+				"name": "道頓堀",
+				"description": "グリコの看板と食い倒れの街。ネオンが輝く繁華街"
+			},
+			{
+				"name": "大阪城",
+				"description": "太閤秀吉が築いた天下の名城。桜の名所でもある"
+			},
+			{
+				"name": "新世界・通天閣",
+				"description": "レトロな下町風情と串カツの聖地"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "大阪城の桜と過ごしやすい気候" },
+			{ "season": "autumn", "reason": "食欲の秋。箕面の紅葉も美しい" }
+		],
+		"access": "東京から東海道新幹線で約2時間半（新大阪駅）",
+		"mood": ["gourmet", "urban", "family"]
 	},
 	{
 		"id": "hyogo",
@@ -277,7 +1207,41 @@
 		"description": "神戸の異国情緒と姫路城の世界遺産。有馬温泉も。",
 		"highlights": ["姫路城", "神戸", "有馬温泉"],
 		"activities": ["urban", "temples", "onsen"],
-		"imageUrl": "/images/hyogo.jpg"
+		"imageUrl": "/images/hyogo.jpg",
+		"dishes": [
+			{
+				"name": "神戸ビーフ",
+				"description": "世界的に有名な最高級和牛。きめ細かい霜降りの芸術"
+			},
+			{
+				"name": "明石焼き",
+				"description": "卵たっぷりのふわふわたこ焼きを出汁につけて食べる"
+			},
+			{
+				"name": "そばめし",
+				"description": "焼きそばとご飯を鉄板で炒める神戸下町のB級グルメ"
+			}
+		],
+		"spots": [
+			{
+				"name": "姫路城",
+				"description": "白鷺城とも呼ばれる日本一美しい国宝・世界遺産の城"
+			},
+			{
+				"name": "神戸北野異人館街",
+				"description": "明治時代の洋館が並ぶ異国情緒あふれる街並み"
+			},
+			{
+				"name": "有馬温泉",
+				"description": "日本三古湯のひとつ。金泉・銀泉の二種類の湯"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "姫路城の桜と神戸の街歩き日和" },
+			{ "season": "winter", "reason": "有馬温泉と神戸ルミナリエの光" }
+		],
+		"access": "東京から東海道新幹線で約2時間45分（新神戸駅）",
+		"mood": ["romantic", "cultural", "gourmet"]
 	},
 	{
 		"id": "nara",
@@ -287,7 +1251,41 @@
 		"description": "奈良公園の鹿と東大寺の大仏。古代日本の都。",
 		"highlights": ["東大寺", "奈良公園の鹿", "春日大社"],
 		"activities": ["temples", "mountains", "food"],
-		"imageUrl": "/images/nara.jpg"
+		"imageUrl": "/images/nara.jpg",
+		"dishes": [
+			{
+				"name": "柿の葉寿司",
+				"description": "鯖や鮭を柿の葉で包んだ奈良を代表する押し寿司"
+			},
+			{
+				"name": "三輪そうめん",
+				"description": "日本のそうめん発祥の地。1200年の歴史を持つ細麺"
+			},
+			{
+				"name": "大仏プリン",
+				"description": "まほろば大仏プリンが人気の奈良みやげスイーツ"
+			}
+		],
+		"spots": [
+			{
+				"name": "東大寺",
+				"description": "奈良の大仏を安置する世界最大級の木造建築"
+			},
+			{
+				"name": "春日大社",
+				"description": "朱塗りの社殿と3000基の灯籠が美しい世界遺産"
+			},
+			{
+				"name": "奈良公園",
+				"description": "約1200頭の野生の鹿と触れ合える広大な公園"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "桜と鹿の組み合わせが絵になる季節" },
+			{ "season": "autumn", "reason": "紅葉の奈良公園と正倉院展" }
+		],
+		"access": "東京から東海道新幹線+近鉄で約3時間（近鉄奈良駅）",
+		"mood": ["cultural", "family", "relaxing"]
 	},
 	{
 		"id": "wakayama",
@@ -297,7 +1295,41 @@
 		"description": "熊野古道の世界遺産と白浜の美しいビーチ。みかんの産地。",
 		"highlights": ["熊野古道", "白浜", "高野山"],
 		"activities": ["temples", "ocean", "onsen"],
-		"imageUrl": "/images/wakayama.jpg"
+		"imageUrl": "/images/wakayama.jpg",
+		"dishes": [
+			{
+				"name": "和歌山ラーメン",
+				"description": "豚骨醤油ベースの濃厚スープ。早寿司と一緒に"
+			},
+			{
+				"name": "めはり寿司",
+				"description": "高菜の葉でご飯を包んだ熊野地方の郷土おにぎり"
+			},
+			{
+				"name": "クエ鍋",
+				"description": "幻の高級魚クエを贅沢に鍋で味わう冬の逸品"
+			}
+		],
+		"spots": [
+			{
+				"name": "熊野古道",
+				"description": "世界遺産の巡礼路。石畳の道を歩く精神的な旅"
+			},
+			{
+				"name": "高野山",
+				"description": "空海が開いた真言密教の聖地。宿坊体験も"
+			},
+			{
+				"name": "白浜",
+				"description": "白い砂浜とエメラルドグリーンの海。温泉も楽しめる"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "autumn", "reason": "熊野古道のハイキングに最適な気温" },
+			{ "season": "spring", "reason": "白浜の海開きが早く、温暖で花が美しい" }
+		],
+		"access": "東京から飛行機で約1時間10分（南紀白浜空港）、新幹線+特急で約4時間",
+		"mood": ["adventure", "cultural", "relaxing"]
 	},
 	{
 		"id": "tottori",
@@ -307,7 +1339,38 @@
 		"description": "鳥取砂丘の壮大な景色。松葉がにと梨の名産地。",
 		"highlights": ["鳥取砂丘", "松葉がに", "大山"],
 		"activities": ["ocean", "food", "mountains"],
-		"imageUrl": "/images/tottori.jpg"
+		"imageUrl": "/images/tottori.jpg",
+		"dishes": [
+			{ "name": "松葉がに", "description": "冬の山陰を代表する高級ズワイガニ" },
+			{
+				"name": "とうふちくわ",
+				"description": "豆腐を7割混ぜ込んだ鳥取独自のヘルシーちくわ"
+			},
+			{
+				"name": "二十世紀梨",
+				"description": "みずみずしくさわやかな甘さの鳥取名産の梨"
+			}
+		],
+		"spots": [
+			{
+				"name": "鳥取砂丘",
+				"description": "日本最大級の砂丘。ラクダ乗りやパラグライダー体験"
+			},
+			{
+				"name": "大山",
+				"description": "伯耆富士と呼ばれる中国地方最高峰の美しい山"
+			},
+			{
+				"name": "浦富海岸",
+				"description": "山陰のジオパーク。透明度の高い海と奇岩の景勝地"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "winter", "reason": "松葉がに解禁と雪化粧の大山" },
+			{ "season": "summer", "reason": "砂丘と浦富海岸のシーカヤック" }
+		],
+		"access": "東京から飛行機で約1時間15分（鳥取砂丘コナン空港）",
+		"mood": ["adventure", "nature", "gourmet"]
 	},
 	{
 		"id": "shimane",
@@ -317,7 +1380,44 @@
 		"description": "出雲大社の神話の地。玉造温泉と宍道湖の夕日。",
 		"highlights": ["出雲大社", "玉造温泉", "宍道湖"],
 		"activities": ["temples", "onsen", "ocean"],
-		"imageUrl": "/images/shimane.jpg"
+		"imageUrl": "/images/shimane.jpg",
+		"dishes": [
+			{
+				"name": "出雲そば",
+				"description": "殻ごと挽いた黒い蕎麦を三段の割子で食べる独特のスタイル"
+			},
+			{
+				"name": "しじみ汁",
+				"description": "宍道湖のヤマトシジミを使った滋味深い汁物"
+			},
+			{
+				"name": "ぼてぼて茶",
+				"description": "番茶に具を入れて泡立てる出雲地方の伝統的な茶の食"
+			}
+		],
+		"spots": [
+			{
+				"name": "出雲大社",
+				"description": "縁結びの神様。日本最古の歴史書に記される神社"
+			},
+			{
+				"name": "足立美術館",
+				"description": "米誌で日本庭園ランキング連続1位の美術館"
+			},
+			{
+				"name": "玉造温泉",
+				"description": "美肌の湯として名高い1300年の歴史ある温泉"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "autumn",
+				"reason": "神在月（旧暦10月）の出雲大社と宍道湖の夕日"
+			},
+			{ "season": "spring", "reason": "足立美術館の庭園と穏やかな気候" }
+		],
+		"access": "東京から飛行機で約1時間半（出雲縁結び空港）",
+		"mood": ["romantic", "cultural", "relaxing"]
 	},
 	{
 		"id": "okayama",
@@ -327,7 +1427,41 @@
 		"description": "桃太郎伝説の地。後楽園と倉敷美観地区の美しい街並み。",
 		"highlights": ["後楽園", "倉敷美観地区", "桃"],
 		"activities": ["urban", "food", "temples"],
-		"imageUrl": "/images/okayama.jpg"
+		"imageUrl": "/images/okayama.jpg",
+		"dishes": [
+			{
+				"name": "ばら寿司",
+				"description": "岡山の祭り寿司。色とりどりの具材を散りばめた華やかな寿司"
+			},
+			{
+				"name": "きびだんご",
+				"description": "桃太郎ゆかりの銘菓。もちもち食感の吉備団子"
+			},
+			{
+				"name": "ままかり寿司",
+				"description": "ご飯を借りるほど美味しい小魚の酢漬け寿司"
+			}
+		],
+		"spots": [
+			{
+				"name": "後楽園",
+				"description": "日本三名園のひとつ。岡山城と一体の回遊式庭園"
+			},
+			{
+				"name": "倉敷美観地区",
+				"description": "白壁の蔵と柳の並木が川沿いに続く美しい街並み"
+			},
+			{
+				"name": "大原美術館",
+				"description": "倉敷にある日本初の西洋美術館。エル・グレコの名画"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "後楽園の桜と岡山城のライトアップ" },
+			{ "season": "summer", "reason": "白桃とマスカットが旬を迎える果物王国" }
+		],
+		"access": "東京から東海道・山陽新幹線で約3時間15分（岡山駅）",
+		"mood": ["cultural", "romantic", "family"]
 	},
 	{
 		"id": "hiroshima",
@@ -337,7 +1471,41 @@
 		"description": "平和記念公園と厳島神社。お好み焼きと牡蠣が名物。",
 		"highlights": ["厳島神社", "平和記念公園", "お好み焼き"],
 		"activities": ["temples", "food", "ocean"],
-		"imageUrl": "/images/hiroshima.jpg"
+		"imageUrl": "/images/hiroshima.jpg",
+		"dishes": [
+			{
+				"name": "広島お好み焼き",
+				"description": "薄い生地に麺とキャベツを重ねて焼く広島流の粉もん"
+			},
+			{
+				"name": "牡蠣",
+				"description": "生産量日本一。冬の焼き牡蠣と牡蠣フライは格別"
+			},
+			{
+				"name": "もみじ饅頭",
+				"description": "宮島名物のもみじ型の焼き饅頭。揚げもみじも人気"
+			}
+		],
+		"spots": [
+			{
+				"name": "厳島神社",
+				"description": "海に浮かぶ朱の大鳥居が象徴の世界遺産"
+			},
+			{
+				"name": "原爆ドーム",
+				"description": "世界平和を祈る負の世界遺産。平和記念資料館も"
+			},
+			{
+				"name": "尾道",
+				"description": "坂道と猫と映画の町。しまなみ海道の起点"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "宮島の桜と穏やかな瀬戸内の春" },
+			{ "season": "winter", "reason": "牡蠣の旬。かき小屋で焼き牡蠣三昧" }
+		],
+		"access": "東京から東海道・山陽新幹線で約4時間（広島駅）、飛行機で約1時間20分",
+		"mood": ["cultural", "gourmet", "family"]
 	},
 	{
 		"id": "yamaguchi",
@@ -347,7 +1515,41 @@
 		"description": "角島大橋の絶景と秋吉台のカルスト台地。ふぐの本場。",
 		"highlights": ["角島大橋", "秋吉台", "ふぐ"],
 		"activities": ["ocean", "food", "mountains"],
-		"imageUrl": "/images/yamaguchi.jpg"
+		"imageUrl": "/images/yamaguchi.jpg",
+		"dishes": [
+			{
+				"name": "ふぐ料理",
+				"description": "下関はふぐの本場。てっさ・てっちりを堪能"
+			},
+			{
+				"name": "瓦そば",
+				"description": "熱した瓦の上で茶そばを焼く下関発祥の名物"
+			},
+			{
+				"name": "岩国寿司",
+				"description": "木枠で押した色鮮やかな五層の押し寿司"
+			}
+		],
+		"spots": [
+			{
+				"name": "角島大橋",
+				"description": "コバルトブルーの海を渡る全長1780mの絶景橋"
+			},
+			{
+				"name": "秋芳洞",
+				"description": "秋吉台の地下に広がる日本最大級の鍾乳洞"
+			},
+			{
+				"name": "元乃隅神社",
+				"description": "123基の赤い鳥居が断崖の上に連なるパワースポット"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "summer", "reason": "角島大橋のエメラルドグリーンの海" },
+			{ "season": "winter", "reason": "ふぐの旬。下関の唐戸市場で食べ比べ" }
+		],
+		"access": "東京から山陽新幹線で約4時間半（新山口駅）、飛行機で約1時間半",
+		"mood": ["adventure", "gourmet", "nature"]
 	},
 	{
 		"id": "tokushima",
@@ -357,7 +1559,41 @@
 		"description": "阿波踊りの熱気と鳴門の渦潮。祖谷渓の秘境も魅力。",
 		"highlights": ["阿波踊り", "鳴門の渦潮", "祖谷渓"],
 		"activities": ["ocean", "mountains", "food"],
-		"imageUrl": "/images/tokushima.jpg"
+		"imageUrl": "/images/tokushima.jpg",
+		"dishes": [
+			{
+				"name": "徳島ラーメン",
+				"description": "甘辛い豚バラと生卵をのせる濃厚な醤油豚骨ラーメン"
+			},
+			{
+				"name": "鳴門鯛",
+				"description": "渦潮で鍛えられた身の引き締まった天然真鯛"
+			},
+			{
+				"name": "すだち",
+				"description": "徳島県が生産量98%を占める爽やかな柑橘。何にでも搾る"
+			}
+		],
+		"spots": [
+			{
+				"name": "鳴門の渦潮",
+				"description": "世界最大級の渦潮を観潮船やガラス床の橋から観察"
+			},
+			{
+				"name": "祖谷のかずら橋",
+				"description": "植物のつるで編んだスリル満点の吊り橋"
+			},
+			{
+				"name": "大塚国際美術館",
+				"description": "世界の名画を原寸大の陶板で再現した唯一無二の美術館"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "summer", "reason": "阿波踊り（8月）と鳴門の渦潮の大潮" },
+			{ "season": "autumn", "reason": "祖谷渓の紅葉とかずら橋" }
+		],
+		"access": "東京から飛行機で約1時間15分（徳島阿波おどり空港）",
+		"mood": ["adventure", "cultural", "nature"]
 	},
 	{
 		"id": "kagawa",
@@ -367,7 +1603,47 @@
 		"description": "讃岐うどんの聖地。小豆島のオリーブと直島のアート。",
 		"highlights": ["讃岐うどん", "直島", "小豆島"],
 		"activities": ["food", "ocean", "urban"],
-		"imageUrl": "/images/kagawa.jpg"
+		"imageUrl": "/images/kagawa.jpg",
+		"dishes": [
+			{
+				"name": "讃岐うどん",
+				"description": "コシの強い麺とイリコ出汁。セルフ店めぐりが楽しい"
+			},
+			{
+				"name": "骨付鳥",
+				"description": "スパイスを効かせた骨付き鶏もも肉を豪快にかぶりつく"
+			},
+			{
+				"name": "小豆島オリーブ",
+				"description": "日本のオリーブ栽培発祥の地。オリーブ牛も"
+			}
+		],
+		"spots": [
+			{
+				"name": "直島",
+				"description": "草間彌生のかぼちゃで有名な瀬戸内の現代アートの島"
+			},
+			{
+				"name": "栗林公園",
+				"description": "ミシュラン三つ星の大名庭園。松の美しさは日本一"
+			},
+			{
+				"name": "小豆島エンジェルロード",
+				"description": "干潮時だけ現れる砂の道。縁結びのスポット"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "autumn",
+				"reason": "瀬戸内国際芸術祭（3年ごと）と穏やかな気候"
+			},
+			{
+				"season": "spring",
+				"reason": "小豆島のオリーブの花と瀬戸内の穏やかな海"
+			}
+		],
+		"access": "東京から飛行機で約1時間15分（高松空港）、新幹線+在来線で約4時間",
+		"mood": ["gourmet", "cultural", "romantic"]
 	},
 	{
 		"id": "ehime",
@@ -377,7 +1653,44 @@
 		"description": "道後温泉の歴史ある湯と松山城。しまなみ海道も絶景。",
 		"highlights": ["道後温泉", "松山城", "しまなみ海道"],
 		"activities": ["onsen", "temples", "ocean"],
-		"imageUrl": "/images/ehime.jpg"
+		"imageUrl": "/images/ehime.jpg",
+		"dishes": [
+			{
+				"name": "鯛めし",
+				"description": "宇和島風は生卵と鯛の刺身をご飯にかける漁師めし"
+			},
+			{
+				"name": "じゃこ天",
+				"description": "小魚のすり身を揚げた愛媛の日常おやつ"
+			},
+			{
+				"name": "みかんジュース蛇口",
+				"description": "松山空港にある蛇口から出る100%みかんジュース"
+			}
+		],
+		"spots": [
+			{
+				"name": "道後温泉本館",
+				"description": "3000年の歴史を持つ日本最古の温泉。夏目漱石ゆかり"
+			},
+			{
+				"name": "しまなみ海道",
+				"description": "瀬戸内海の島々を自転車で渡る全長70kmの海の道"
+			},
+			{
+				"name": "松山城",
+				"description": "現存12天守のひとつ。ロープウェイで登る山上の城"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "spring",
+				"reason": "しまなみ海道のサイクリングに最適な気候"
+			},
+			{ "season": "autumn", "reason": "みかんの季節と道後温泉の紅葉" }
+		],
+		"access": "東京から飛行機で約1時間20分（松山空港）",
+		"mood": ["relaxing", "active", "romantic"]
 	},
 	{
 		"id": "kochi",
@@ -387,7 +1700,38 @@
 		"description": "四万十川の清流とカツオのたたき。坂本龍馬ゆかりの地。",
 		"highlights": ["四万十川", "カツオのたたき", "桂浜"],
 		"activities": ["ocean", "food", "mountains"],
-		"imageUrl": "/images/kochi.jpg"
+		"imageUrl": "/images/kochi.jpg",
+		"dishes": [
+			{
+				"name": "カツオのたたき",
+				"description": "藁で豪快に炙ったカツオを薬味と塩で食べる土佐流"
+			},
+			{
+				"name": "皿鉢料理",
+				"description": "大皿に刺身や寿司を豪快に盛る高知の宴会料理"
+			},
+			{
+				"name": "四万十川の天然鮎",
+				"description": "最後の清流で育った香り高い天然鮎の塩焼き"
+			}
+		],
+		"spots": [
+			{
+				"name": "四万十川",
+				"description": "日本最後の清流。沈下橋が点在する美しい川"
+			},
+			{ "name": "桂浜", "description": "坂本龍馬像が立つ太平洋を望む月の名所" },
+			{
+				"name": "仁淀川",
+				"description": "仁淀ブルーと呼ばれる奇跡的な青さの清流"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "summer", "reason": "四万十川でのカヌーと天然鮎" },
+			{ "season": "spring", "reason": "初鰹の季節と仁淀川の新緑" }
+		],
+		"access": "東京から飛行機で約1時間15分（高知龍馬空港）",
+		"mood": ["adventure", "nature", "gourmet"]
 	},
 	{
 		"id": "fukuoka",
@@ -397,7 +1741,41 @@
 		"description": "博多ラーメンと屋台文化。アジアへの玄関口。",
 		"highlights": ["博多ラーメン", "屋台", "太宰府天満宮"],
 		"activities": ["food", "urban", "temples"],
-		"imageUrl": "/images/fukuoka.jpg"
+		"imageUrl": "/images/fukuoka.jpg",
+		"dishes": [
+			{
+				"name": "博多ラーメン",
+				"description": "極細麺と白濁豚骨スープ。替え玉文化の発祥地"
+			},
+			{
+				"name": "明太子",
+				"description": "唐辛子で漬けたスケトウダラの卵。ご飯のお供の王様"
+			},
+			{
+				"name": "もつ鍋",
+				"description": "ニンニクとニラが効いた博多名物のホルモン鍋"
+			}
+		],
+		"spots": [
+			{
+				"name": "太宰府天満宮",
+				"description": "学問の神・菅原道真を祀る学業の聖地"
+			},
+			{
+				"name": "中洲屋台街",
+				"description": "日本最大の屋台街。ラーメンやおでんを外で味わう夜"
+			},
+			{
+				"name": "糸島",
+				"description": "おしゃれなカフェと美しいビーチが点在する人気エリア"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "太宰府天満宮の梅・桜と博多どんたく" },
+			{ "season": "autumn", "reason": "食欲の秋。屋台日和の過ごしやすい気候" }
+		],
+		"access": "東京から飛行機で約2時間（福岡空港）、新幹線で約5時間",
+		"mood": ["gourmet", "urban", "active"]
 	},
 	{
 		"id": "saga",
@@ -407,7 +1785,44 @@
 		"description": "有田焼・伊万里焼の陶磁器文化。嬉野温泉と佐賀牛。",
 		"highlights": ["有田焼", "嬉野温泉", "佐賀牛"],
 		"activities": ["food", "onsen", "urban"],
-		"imageUrl": "/images/saga.jpg"
+		"imageUrl": "/images/saga.jpg",
+		"dishes": [
+			{
+				"name": "佐賀牛",
+				"description": "JAグループ最高品質の黒毛和牛。甘みのある脂が特徴"
+			},
+			{
+				"name": "呼子イカ",
+				"description": "呼子の朝市で食べる透き通った活きイカの刺身"
+			},
+			{
+				"name": "シシリアンライス",
+				"description": "佐賀市のご当地プレート。サラダとご飯と肉の三位一体"
+			}
+		],
+		"spots": [
+			{
+				"name": "有田",
+				"description": "400年の歴史を持つ磁器の里。窯元めぐりが楽しい"
+			},
+			{
+				"name": "嬉野温泉",
+				"description": "日本三大美肌の湯。とろとろの泉質で肌すべすべ"
+			},
+			{
+				"name": "吉野ヶ里遺跡",
+				"description": "弥生時代の大規模環壕集落跡。古代日本を体感"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "autumn",
+				"reason": "バルーンフェスタ（11月）と紅葉の御船山楽園"
+			},
+			{ "season": "spring", "reason": "有田陶器市（5月）と武雄の桜" }
+		],
+		"access": "東京から飛行機で約2時間（佐賀空港）、博多から特急で約40分",
+		"mood": ["cultural", "gourmet", "relaxing"]
 	},
 	{
 		"id": "nagasaki",
@@ -417,7 +1832,44 @@
 		"description": "異国情緒あふれる港町。ちゃんぽんと軍艦島。",
 		"highlights": ["グラバー園", "軍艦島", "ちゃんぽん"],
 		"activities": ["urban", "ocean", "food"],
-		"imageUrl": "/images/nagasaki.jpg"
+		"imageUrl": "/images/nagasaki.jpg",
+		"dishes": [
+			{
+				"name": "ちゃんぽん",
+				"description": "海鮮と野菜たっぷりの太麺スープ。長崎中華の代表"
+			},
+			{
+				"name": "カステラ",
+				"description": "ポルトガルから伝来した長崎の銘菓。しっとり甘い"
+			},
+			{
+				"name": "トルコライス",
+				"description": "ピラフ・スパゲティ・カツの三種盛りプレート"
+			}
+		],
+		"spots": [
+			{
+				"name": "軍艦島（端島）",
+				"description": "廃墟の無人島。かつての炭鉱都市を船で上陸見学"
+			},
+			{
+				"name": "グラバー園",
+				"description": "南山手の丘に建つ洋館群。長崎港の眺望も絶景"
+			},
+			{
+				"name": "ハウステンボス",
+				"description": "ヨーロッパの街並みを再現した日本最大のテーマパーク"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "winter",
+				"reason": "ランタンフェスティバル（1〜2月）の幻想的な灯り"
+			},
+			{ "season": "spring", "reason": "出島と大浦天主堂の花々と温暖な気候" }
+		],
+		"access": "東京から飛行機で約2時間（長崎空港）、西九州新幹線で博多から約1時間20分",
+		"mood": ["cultural", "romantic", "adventure"]
 	},
 	{
 		"id": "kumamoto",
@@ -427,7 +1879,44 @@
 		"description": "阿蘇山の雄大なカルデラと熊本城。馬刺しが名物。",
 		"highlights": ["阿蘇山", "熊本城", "馬刺し"],
 		"activities": ["mountains", "food", "temples"],
-		"imageUrl": "/images/kumamoto.jpg"
+		"imageUrl": "/images/kumamoto.jpg",
+		"dishes": [
+			{
+				"name": "馬刺し",
+				"description": "日本一の消費量。赤身からトロまで部位ごとに味わう"
+			},
+			{
+				"name": "からし蓮根",
+				"description": "蓮根の穴にからし味噌を詰めて揚げた熊本の定番"
+			},
+			{
+				"name": "太平燕",
+				"description": "春雨スープに揚げ卵をのせた熊本のご当地麺料理"
+			}
+		],
+		"spots": [
+			{
+				"name": "阿蘇山",
+				"description": "世界最大級のカルデラ。草千里ヶ浜の大草原が広がる"
+			},
+			{
+				"name": "熊本城",
+				"description": "加藤清正が築いた日本三名城。復興が進む姿も見どころ"
+			},
+			{
+				"name": "黒川温泉",
+				"description": "入湯手形で露天風呂めぐりができる雰囲気抜群の温泉郷"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "spring",
+				"reason": "阿蘇の草原の新緑と野焼き後の壮大な風景"
+			},
+			{ "season": "winter", "reason": "黒川温泉の湯あかりライトアップ" }
+		],
+		"access": "東京から飛行機で約1時間50分（阿蘇くまもと空港）、新幹線で約6時間",
+		"mood": ["nature", "adventure", "gourmet"]
 	},
 	{
 		"id": "oita",
@@ -437,7 +1926,41 @@
 		"description": "日本一の温泉県。別府と湯布院の温泉郷が有名。",
 		"highlights": ["別府温泉", "湯布院", "地獄めぐり"],
 		"activities": ["onsen", "food", "mountains"],
-		"imageUrl": "/images/oita.jpg"
+		"imageUrl": "/images/oita.jpg",
+		"dishes": [
+			{
+				"name": "とり天",
+				"description": "大分発祥の鶏の天ぷら。ポン酢とからしで食べる"
+			},
+			{
+				"name": "関あじ・関さば",
+				"description": "豊後水道の急流で育った極上のブランド魚"
+			},
+			{
+				"name": "地獄蒸しプリン",
+				"description": "温泉の蒸気で蒸した別府名物のなめらかプリン"
+			}
+		],
+		"spots": [
+			{
+				"name": "別府地獄めぐり",
+				"description": "7つの色鮮やかな温泉地獄を巡る別府の定番コース"
+			},
+			{
+				"name": "湯布院",
+				"description": "由布岳のふもとに広がるおしゃれな温泉リゾート"
+			},
+			{ "name": "臼杵石仏", "description": "国宝に指定された60余体の磨崖仏群" }
+		],
+		"bestSeasons": [
+			{
+				"season": "winter",
+				"reason": "温泉のベストシーズン。湯けむりが幻想的"
+			},
+			{ "season": "autumn", "reason": "由布岳の紅葉と温泉のコンビネーション" }
+		],
+		"access": "東京から飛行機で約1時間40分（大分空港）",
+		"mood": ["relaxing", "gourmet", "romantic"]
 	},
 	{
 		"id": "miyazaki",
@@ -447,7 +1970,44 @@
 		"description": "南国ムードと高千穂峡の神話の地。チキン南蛮発祥。",
 		"highlights": ["高千穂峡", "チキン南蛮", "青島"],
 		"activities": ["ocean", "mountains", "food"],
-		"imageUrl": "/images/miyazaki.jpg"
+		"imageUrl": "/images/miyazaki.jpg",
+		"dishes": [
+			{
+				"name": "チキン南蛮",
+				"description": "宮崎発祥。甘酢とタルタルソースの黄金コンビ"
+			},
+			{
+				"name": "宮崎マンゴー",
+				"description": "太陽のタマゴの名で知られる極上の完熟マンゴー"
+			},
+			{
+				"name": "冷や汁",
+				"description": "焼き味噌と魚のほぐし身を冷たい出汁でご飯にかける夏の味"
+			}
+		],
+		"spots": [
+			{
+				"name": "高千穂峡",
+				"description": "天孫降臨の神話が残る真名井の滝とボート遊覧"
+			},
+			{
+				"name": "青島",
+				"description": "鬼の洗濯板と呼ばれる波状岩に囲まれた亜熱帯の島"
+			},
+			{
+				"name": "日南海岸",
+				"description": "フェニックスの並木とモアイ像が南国ムードの海岸線"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "spring",
+				"reason": "温暖な気候と花々。プロ野球キャンプの季節"
+			},
+			{ "season": "summer", "reason": "マンゴーの旬と青島の海" }
+		],
+		"access": "東京から飛行機で約1時間45分（宮崎ブーゲンビリア空港）",
+		"mood": ["adventure", "nature", "relaxing"]
 	},
 	{
 		"id": "kagoshima",
@@ -457,7 +2017,41 @@
 		"description": "桜島の活火山と屋久島の世界遺産。黒豚と焼酎も。",
 		"highlights": ["桜島", "屋久島", "黒豚"],
 		"activities": ["mountains", "ocean", "food"],
-		"imageUrl": "/images/kagoshima.jpg"
+		"imageUrl": "/images/kagoshima.jpg",
+		"dishes": [
+			{
+				"name": "黒豚しゃぶしゃぶ",
+				"description": "きめ細かい肉質の鹿児島黒豚をさっと湯がいて"
+			},
+			{
+				"name": "しろくま",
+				"description": "練乳かき氷にフルーツをのせた鹿児島発祥の夏スイーツ"
+			},
+			{
+				"name": "きびなご",
+				"description": "体長10cmの銀色の小魚。刺身の菊花盛りが美しい"
+			}
+		],
+		"spots": [
+			{
+				"name": "桜島",
+				"description": "鹿児島のシンボル。噴煙を上げる活火山をフェリーで間近に"
+			},
+			{
+				"name": "屋久島",
+				"description": "樹齢数千年の屋久杉が茂る世界自然遺産の島"
+			},
+			{
+				"name": "仙巌園",
+				"description": "桜島と錦江湾を借景にした島津家の大名庭園"
+			}
+		],
+		"bestSeasons": [
+			{ "season": "spring", "reason": "温暖な気候と仙巌園の桜。屋久島の新緑" },
+			{ "season": "summer", "reason": "しろくまの季節と屋久島トレッキング" }
+		],
+		"access": "東京から飛行機で約1時間50分（鹿児島空港）、新幹線で約6時間半",
+		"mood": ["adventure", "nature", "gourmet"]
 	},
 	{
 		"id": "okinawa",
@@ -467,6 +2061,46 @@
 		"description": "美しいサンゴ礁の海と独自の琉球文化。年中温暖な楽園。",
 		"highlights": ["美ら海水族館", "首里城", "サンゴ礁の海"],
 		"activities": ["ocean", "food", "urban"],
-		"imageUrl": "/images/okinawa.jpg"
+		"imageUrl": "/images/okinawa.jpg",
+		"dishes": [
+			{
+				"name": "ゴーヤチャンプルー",
+				"description": "ゴーヤ・豆腐・ポークの炒めもの。沖縄家庭料理の代表"
+			},
+			{
+				"name": "沖縄そば",
+				"description": "豚骨と鰹出汁のスープに太めの麺。ソーキそばが定番"
+			},
+			{
+				"name": "サーターアンダギー",
+				"description": "丸い形のドーナツ風揚げ菓子。沖縄のおやつ"
+			}
+		],
+		"spots": [
+			{
+				"name": "美ら海水族館",
+				"description": "ジンベエザメが泳ぐ世界最大級の水槽は圧巻"
+			},
+			{
+				"name": "首里城",
+				"description": "琉球王国の居城。復元が進む世界遺産の朱色の城"
+			},
+			{
+				"name": "慶良間諸島",
+				"description": "ケラマブルーと称される世界屈指の透明度の海"
+			}
+		],
+		"bestSeasons": [
+			{
+				"season": "spring",
+				"reason": "梅雨前の4〜5月がベスト。海開きも始まる"
+			},
+			{
+				"season": "winter",
+				"reason": "ホエールウォッチングと避寒。混雑も少ない"
+			}
+		],
+		"access": "東京から飛行機で約2時間半（那覇空港）",
+		"mood": ["relaxing", "family", "adventure"]
 	}
 ]

@@ -1,4 +1,4 @@
-import type { Activity, Prefecture } from "../../types/index.ts";
+import type { Activity, ActivityId, Prefecture } from "../../types/index.ts";
 import {
 	extractActivities,
 	extractPrefectures,
@@ -16,8 +16,20 @@ export default function BubbleActions({
 	prefectures,
 	activities,
 }: Props) {
-	const acts = extractActivities(content);
+	let acts = extractActivities(content);
 	const prefs = extractPrefectures(content, prefectures);
+
+	// Fallback: derive activities from matched prefectures when tag is missing/invalid
+	if (acts.length === 0 && prefs.length > 0) {
+		const counts = new Map<ActivityId, number>();
+		for (const p of prefs) {
+			for (const a of p.activities) {
+				counts.set(a, (counts.get(a) || 0) + 1);
+			}
+		}
+		acts = [...counts.entries()].sort((a, b) => b[1] - a[1]).map(([id]) => id);
+	}
+
 	if (acts.length === 0 && prefs.length === 0) return null;
 
 	return (

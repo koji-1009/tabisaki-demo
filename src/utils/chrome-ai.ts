@@ -6,10 +6,22 @@ interface LanguageModelSession {
 	destroy(): void;
 }
 
+interface ExpectedOutput {
+	type: "text";
+	languages: string[];
+}
+
+interface LanguageModelCreateOptions {
+	systemPrompt: string;
+	expectedOutputs?: ExpectedOutput[];
+}
+
 interface LanguageModelAPI {
-	availability?: () => Promise<string>;
+	availability?: (options?: {
+		expectedOutputs?: ExpectedOutput[];
+	}) => Promise<string>;
 	capabilities?: () => Promise<{ available: string }>;
-	create(options: { systemPrompt: string }): Promise<LanguageModelSession>;
+	create(options: LanguageModelCreateOptions): Promise<LanguageModelSession>;
 }
 
 declare global {
@@ -39,6 +51,8 @@ export type AIStatus =
 	| "unavailable"
 	| "no-api";
 
+const OUTPUT_OPTIONS: ExpectedOutput[] = [{ type: "text", languages: ["ja"] }];
+
 export async function checkAvailability(): Promise<AIStatus> {
 	try {
 		const api = getAPI();
@@ -46,7 +60,9 @@ export async function checkAvailability(): Promise<AIStatus> {
 
 		let status: string;
 		if (typeof api.availability === "function") {
-			status = await api.availability();
+			status = await api.availability({
+				expectedOutputs: OUTPUT_OPTIONS,
+			});
 		} else if (typeof api.capabilities === "function") {
 			const caps = await api.capabilities();
 			status = caps?.available ?? "no";
@@ -69,22 +85,33 @@ export async function createSession(systemPrompt: string) {
 	if (!api) {
 		throw new Error("Chrome AI not available");
 	}
-	return api.create({ systemPrompt });
+	return api.create({ systemPrompt, expectedOutputs: OUTPUT_OPTIONS });
 }
 
-export const SYSTEM_PROMPT = `あなたは日本旅行のアドバイザーです。ユーザーの希望を聞いて、旅の目的（アクティビティ）を一緒に絞り込み、おすすめの都道府県を提案してください。
+export const SYSTEM_PROMPT = `You are a Japan travel advisor. Help users find prefectures matching their interests.
 
-利用可能なアクティビティ:
-- ocean: 海を見たい
-- mountains: 山を見たい
-- food: ご飯が食べたい
-- temples: 寺社仏閣
-- onsen: 温泉
-- urban: 街歩き
+Available activities:
+- ocean: beaches, coastal scenery (海)
+- mountains: hiking, nature (山)
+- food: local cuisine (グルメ)
+- temples: temples, shrines, castles, history (寺社仏閣)
+- onsen: hot springs (温泉)
+- urban: city walks, shopping (街歩き)
 
-回答のルール:
-- ユーザーの希望からアクティビティを特定し、該当IDを [activities:ocean,food] の形式で必ず出力してください
-- おすすめの都道府県も提案し、都道府県名は【】で囲んで出力してください（例: 【北海道】）
-- 1回の回答で1〜3つの都道府県を提案し、理由を簡潔に説明
-- ユーザーが曖昧な場合は、好みを掘り下げる質問をしてアクティビティを特定してください
-- アクティビティが特定できていない段階では [activities:] を出力しないでください`;
+Rules:
+1. Always respond in Japanese.
+2. Identify which activities match the user's message, then suggest 1-3 prefectures. Always do BOTH together.
+3. Wrap every prefecture name in 【】 markers (e.g. 【北海道】). This is required for the UI to work.
+4. Give a brief reason for each prefecture, mentioning specific dishes or spots from reference data when available.
+5. If the user is vague, ask one clarifying question. Do not output recommendations until activities are clear.
+6. CRITICAL: End every recommendation with [activities:ocean,food] tag listing the matched IDs. Never skip this.
+
+Example:
+User: 海が綺麗なところで美味しいものも食べたい
+Assistant: 海と食を楽しめる場所ですね！
+
+・【沖縄県】— 慶良間諸島の透明な海と、ゴーヤチャンプルーや沖縄そば
+・【静岡県】— 駿河湾の桜エビのかき揚げと三保松原の絶景
+・【長崎県】— 五島列島の美しい海と本場のちゃんぽん
+
+[activities:ocean,food]`;

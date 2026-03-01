@@ -1,3 +1,35 @@
+export const MOOD_IDS = [
+	"romantic",
+	"adventure",
+	"relaxing",
+	"family",
+	"cultural",
+	"nature",
+	"gourmet",
+	"active",
+] as const;
+
+export type MoodId = (typeof MOOD_IDS)[number];
+
+export const SEASON_IDS = ["spring", "summer", "autumn", "winter"] as const;
+
+export type SeasonId = (typeof SEASON_IDS)[number];
+
+export interface Dish {
+	name: string;
+	description: string;
+}
+
+export interface Spot {
+	name: string;
+	description: string;
+}
+
+export interface SeasonRecommendation {
+	season: SeasonId;
+	reason: string;
+}
+
 export interface Prefecture {
 	id: string;
 	name: string;
@@ -7,6 +39,11 @@ export interface Prefecture {
 	highlights: string[];
 	activities: ActivityId[];
 	imageUrl: string;
+	dishes: Dish[];
+	spots: Spot[];
+	bestSeasons: SeasonRecommendation[];
+	access: string;
+	mood: MoodId[];
 }
 
 export const REGION_IDS = [

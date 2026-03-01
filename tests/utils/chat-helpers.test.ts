@@ -1,10 +1,69 @@
 import { describe, expect, it } from "vitest";
 import { getPrefectures } from "../../src/services/prefectures.ts";
 import {
+	buildPrefectureContext,
+	detectActivitiesFromText,
 	extractActivities,
 	extractPrefectures,
 	renderMarkdown,
 } from "../../src/utils/chat-helpers.ts";
+
+describe("detectActivitiesFromText", () => {
+	it("detects ocean from 海", () => {
+		expect(detectActivitiesFromText("海がきれいなところ")).toContain("ocean");
+	});
+
+	it("detects food from 食べ", () => {
+		expect(detectActivitiesFromText("美味しいもの食べたい")).toContain("food");
+	});
+
+	it("detects multiple activities", () => {
+		const result = detectActivitiesFromText("温泉に入って美味しいもの食べたい");
+		expect(result).toContain("onsen");
+		expect(result).toContain("food");
+	});
+
+	it("returns empty for no match", () => {
+		expect(detectActivitiesFromText("こんにちは")).toEqual([]);
+	});
+
+	it("does not duplicate activities", () => {
+		const result = detectActivitiesFromText("海でビーチを楽しみたい");
+		expect(result.filter((a) => a === "ocean")).toHaveLength(1);
+	});
+});
+
+describe("buildPrefectureContext", () => {
+	const all = getPrefectures();
+
+	it("returns empty for no activities", () => {
+		expect(buildPrefectureContext(all, [])).toBe("");
+	});
+
+	it("returns formatted context for matching activities", () => {
+		const result = buildPrefectureContext(all, ["onsen"], 3);
+		expect(result).toContain("名物=");
+		expect(result).toContain("見所=");
+		// Should include activity IDs in brackets
+		expect(result).toMatch(/\[[\w,]+\]/);
+		// Should include onsen-heavy prefectures
+		expect(result.split("\n").length).toBeLessThanOrEqual(3);
+	});
+
+	it("prioritizes prefectures matching more activities", () => {
+		const result = buildPrefectureContext(all, ["onsen", "food"], 3);
+		const lines = result.split("\n");
+		// First result should match both activities
+		expect(lines.length).toBeGreaterThan(0);
+	});
+
+	it("includes dish names and spot names", () => {
+		const result = buildPrefectureContext(all, ["ocean"], 1);
+		// Should contain actual data from the JSON
+		expect(result).toContain("名物=");
+		expect(result).toContain("見所=");
+	});
+});
 
 describe("extractActivities", () => {
 	it("extracts valid activities from tag", () => {
@@ -59,6 +118,18 @@ describe("renderMarkdown", () => {
 			expect(result).not.toContain("[activities:");
 			expect(result).toContain("hello");
 			expect(result).toContain("world");
+		});
+
+		it("strips echoed activity-ID lists with commas", () => {
+			const result = renderMarkdown("【北海道】[ocean,mountains,food]");
+			expect(result).not.toContain("[ocean");
+			expect(result).toContain("北海道");
+		});
+
+		it("strips echoed activity-ID lists with slashes", () => {
+			const result = renderMarkdown("【沖縄県】[ocean/food]");
+			expect(result).not.toContain("[ocean");
+			expect(result).toContain("沖縄県");
 		});
 	});
 

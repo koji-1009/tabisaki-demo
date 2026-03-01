@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useAISession } from "../../hooks/useAISession.ts";
 import type { Activity, Prefecture } from "../../types/index.ts";
-import { renderMarkdown } from "../../utils/chat-helpers.ts";
+import {
+	buildPrefectureContext,
+	detectActivitiesFromText,
+	extractActivities,
+	extractPrefectures,
+	renderMarkdown,
+} from "../../utils/chat-helpers.ts";
 import BubbleActions from "./BubbleActions";
 
 interface Props {
@@ -14,12 +20,28 @@ interface Message {
 	content: string;
 }
 
+const CHAT_STORAGE_KEY = "tabisaki_chat_messages";
+
+function loadMessages(): Message[] {
+	try {
+		const saved = sessionStorage.getItem(CHAT_STORAGE_KEY);
+		return saved ? JSON.parse(saved) : [];
+	} catch {
+		return [];
+	}
+}
+
 export default function ChatInterface({ prefectures, activities }: Props) {
 	const aiState = useAISession();
-	const [messages, setMessages] = useState<Message[]>([]);
+	const [messages, setMessages] = useState<Message[]>(loadMessages);
 	const [input, setInput] = useState("");
 	const [loading, setLoading] = useState(false);
 	const messagesEnd = useRef<HTMLDivElement>(null);
+
+	// Persist messages to sessionStorage
+	useEffect(() => {
+		sessionStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+	}, [messages]);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: intentionally scroll on message/loading changes
 	useEffect(() => {
@@ -33,7 +55,43 @@ export default function ChatInterface({ prefectures, activities }: Props) {
 		setMessages((prev) => [...prev, { role: "user", content: userMsg }]);
 		setLoading(true);
 		try {
-			const reply = await aiState.session.prompt(userMsg);
+			// Detect activities from user message + previous assistant response
+			const lastAssistant = [...messages]
+				.reverse()
+				.find((m) => m.role === "assistant");
+			let prevActivities = lastAssistant
+				? extractActivities(lastAssistant.content)
+				: [];
+			// Fallback: derive activities from prefectures in previous response
+			if (prevActivities.length === 0 && lastAssistant) {
+				const prevPrefs = extractPrefectures(
+					lastAssistant.content,
+					prefectures,
+				);
+				if (prevPrefs.length > 0) {
+					const counts = new Map<string, number>();
+					for (const p of prevPrefs) {
+						for (const a of p.activities) {
+							counts.set(a, (counts.get(a) || 0) + 1);
+						}
+					}
+					prevActivities = [...counts.entries()]
+						.sort((a, b) => b[1] - a[1])
+						.map(([id]) => id) as typeof prevActivities;
+				}
+			}
+			const detected = detectActivitiesFromText(userMsg);
+			const allActivities = [...new Set([...prevActivities, ...detected])];
+
+			// Inject matching prefecture data as context
+			const FORMAT_REMINDER =
+				"[Format: wrap each prefecture in 【】, end response with [activities:ocean,food] using IDs: ocean/mountains/food/temples/onsen/urban]";
+			const context = buildPrefectureContext(prefectures, allActivities);
+			const prompt = context
+				? `${userMsg}\n\n[Reference]\n${context}\n\n${FORMAT_REMINDER}`
+				: `${userMsg}\n\n${FORMAT_REMINDER}`;
+
+			const reply = await aiState.session.prompt(prompt);
 			setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
 		} catch {
 			setMessages((prev) => [
