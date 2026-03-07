@@ -2,9 +2,6 @@
   "name": "tabisaki-demo",
   "type": "module",
   "version": "0.0.1",
-  "engines": {
-    "node": ">=22"
-  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -15,7 +12,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/cloudflare": "^12.6.5",
     "@astrojs/react": "^4.4.2",
     "@material/material-color-utilities": "^0.4.0",
     "astro": "^5.18.0",
