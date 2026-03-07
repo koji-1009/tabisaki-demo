@@ -6,8 +6,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	const { pathname } = context.url;
 	const prefs = parseUserPrefs(context.request.headers.get("cookie"));
 
-	// API routes pass through
-	if (pathname.startsWith("/api/")) {
+	// API routes and Actions pass through
+	if (pathname.startsWith("/api/") || pathname.startsWith("/_actions/")) {
 		return next();
 	}
 

@@ -1,3 +1,4 @@
+import { actions } from "astro:actions";
 import { useState } from "react";
 import type { ToneKey } from "../../types/index.ts";
 import { applyTheme } from "../../utils/apply-theme.ts";
@@ -30,12 +31,12 @@ export default function SettingsPanel({ initialColor, initialTone }: Props) {
 	const save = async () => {
 		setSaving(true);
 		try {
-			const res = await fetch("/api/preferences", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ color, tone, onboarded: true }),
+			const { error } = await actions.preferences.save({
+				color,
+				tone,
+				onboarded: true,
 			});
-			if (!res.ok) throw new Error();
+			if (error) throw error;
 			setSaved(true);
 		} catch {
 			alert("保存に失敗しました。もう一度お試しください。");
@@ -47,7 +48,8 @@ export default function SettingsPanel({ initialColor, initialTone }: Props) {
 	const reset = async () => {
 		if (!confirm("すべての設定をリセットしますか？")) return;
 		try {
-			await fetch("/api/preferences", { method: "DELETE" });
+			const { error } = await actions.preferences.delete();
+			if (error) throw error;
 			localStorage.clear();
 			window.location.href = "/onboarding";
 		} catch {

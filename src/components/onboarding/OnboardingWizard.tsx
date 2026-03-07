@@ -1,3 +1,4 @@
+import { actions } from "astro:actions";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import type { ToneKey } from "../../types/index.ts";
@@ -28,12 +29,12 @@ export default function OnboardingWizard() {
 	const handleComplete = async (path: string) => {
 		setSaving(true);
 		try {
-			const res = await fetch("/api/preferences", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ color, tone, onboarded: true }),
+			const { error } = await actions.preferences.save({
+				color,
+				tone,
+				onboarded: true,
 			});
-			if (!res.ok) throw new Error();
+			if (error) throw error;
 			window.location.href = path;
 		} catch {
 			setSaving(false);

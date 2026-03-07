@@ -82,7 +82,9 @@ export interface UserPreferences {
 	onboarded: boolean;
 }
 
-export type ToneKey = "vibrant" | "calm" | "monochrome" | "pastel";
+export const TONE_KEYS = ["vibrant", "calm", "monochrome", "pastel"] as const;
+
+export type ToneKey = (typeof TONE_KEYS)[number];
 
 export interface Wishlist {
 	items: string[];
