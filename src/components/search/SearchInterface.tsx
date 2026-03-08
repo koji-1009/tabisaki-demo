@@ -1,9 +1,11 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Prefecture, Region } from "../../types/index.ts";
 import PrefectureCard from "./PrefectureCard";
 
 interface Props {
 	prefectures: Prefecture[];
+	initialQuery?: string;
+	initialRegion?: Region | "all";
 }
 
 const regions: { key: Region | "all"; label: string }[] = [
@@ -18,9 +20,21 @@ const regions: { key: Region | "all"; label: string }[] = [
 	{ key: "kyushu", label: "九州・沖縄" },
 ];
 
-export default function SearchInterface({ prefectures }: Props) {
-	const [query, setQuery] = useState("");
-	const [region, setRegion] = useState<Region | "all">("all");
+export default function SearchInterface({
+	prefectures,
+	initialQuery = "",
+	initialRegion = "all",
+}: Props) {
+	const [query, setQuery] = useState(initialQuery);
+	const [region, setRegion] = useState<Region | "all">(initialRegion);
+
+	useEffect(() => {
+		const params = new URLSearchParams();
+		if (query) params.set("q", query);
+		if (region !== "all") params.set("region", region);
+		const qs = params.toString();
+		history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
+	}, [query, region]);
 
 	const filtered = useMemo(() => {
 		let results = prefectures;

@@ -10,26 +10,27 @@ interface Props {
 	initialTone: ToneKey;
 }
 
+type SaveStatus = "idle" | "saving" | "saved";
+
 export default function SettingsPanel({ initialColor, initialTone }: Props) {
 	const [color, setColor] = useState(initialColor);
 	const [tone, setTone] = useState<ToneKey>(initialTone);
-	const [saved, setSaved] = useState(false);
-	const [saving, setSaving] = useState(false);
+	const [status, setStatus] = useState<SaveStatus>("idle");
 
 	const handleColorSelect = (c: string) => {
 		setColor(c);
 		applyTheme(c, tone);
-		setSaved(false);
+		setStatus("idle");
 	};
 
 	const handleToneSelect = (t: ToneKey) => {
 		setTone(t);
 		applyTheme(color, t);
-		setSaved(false);
+		setStatus("idle");
 	};
 
 	const save = async () => {
-		setSaving(true);
+		setStatus("saving");
 		try {
 			const { error } = await actions.preferences.save({
 				color,
@@ -37,11 +38,10 @@ export default function SettingsPanel({ initialColor, initialTone }: Props) {
 				onboarded: true,
 			});
 			if (error) throw error;
-			setSaved(true);
+			setStatus("saved");
 		} catch {
+			setStatus("idle");
 			alert("保存に失敗しました。もう一度お試しください。");
-		} finally {
-			setSaving(false);
 		}
 	};
 
@@ -70,9 +70,13 @@ export default function SettingsPanel({ initialColor, initialTone }: Props) {
 					type="button"
 					style={styles.saveBtn}
 					onClick={save}
-					disabled={saving}
+					disabled={status === "saving"}
 				>
-					{saving ? "保存中..." : saved ? "保存しました！" : "テーマを保存"}
+					{status === "saving"
+						? "保存中..."
+						: status === "saved"
+							? "保存しました！"
+							: "テーマを保存"}
 				</button>
 				<button type="button" style={styles.resetBtn} onClick={reset}>
 					すべてリセット
