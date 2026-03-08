@@ -2,13 +2,22 @@
 import SearchPage from "../components/search/SearchPage";
 import Layout from "../layouts/Layout.astro";
 import { getPrefectures } from "../services/prefectures.ts";
+import { REGION_IDS, type Region } from "../types/index.ts";
 
 const prefectures = getPrefectures();
+
+const url = new URL(Astro.request.url);
+const initialQuery = url.searchParams.get("q") ?? "";
+const regionParam = url.searchParams.get("region");
+const initialRegion: Region | "all" =
+	regionParam && REGION_IDS.includes(regionParam as Region)
+		? (regionParam as Region)
+		: "all";
 ---
 
 <Layout title="さがす">
   <main style="padding: 16px;">
     <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">都道府県をさがす</h1>
-    <SearchPage client:load prefectures={prefectures} />
+    <SearchPage client:idle prefectures={prefectures} initialQuery={initialQuery} initialRegion={initialRegion} />
   </main>
 </Layout>

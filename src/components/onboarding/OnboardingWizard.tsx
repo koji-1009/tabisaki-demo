@@ -13,6 +13,7 @@ export default function OnboardingWizard() {
 	const [step, setStep] = useState<Step>("color");
 	const [color, setColor] = useState("#6750A4");
 	const [tone, setTone] = useState<ToneKey>("vibrant");
+	const [saving, setSaving] = useState(false);
 
 	const handleColorSelect = (c: string) => {
 		setColor(c);
@@ -23,8 +24,6 @@ export default function OnboardingWizard() {
 		setTone(t);
 		applyTheme(color, t);
 	};
-
-	const [saving, setSaving] = useState(false);
 
 	const handleComplete = async (path: string) => {
 		setSaving(true);

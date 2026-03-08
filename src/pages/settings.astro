@@ -11,6 +11,6 @@ const tone = prefs?.tone ?? "vibrant";
 <Layout title="設定">
   <main style="padding: 16px;">
     <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 24px;">設定</h1>
-    <SettingsPanel client:load initialColor={color} initialTone={tone} />
+    <SettingsPanel client:idle initialColor={color} initialTone={tone} />
   </main>
 </Layout>
