@@ -4,7 +4,7 @@ Japanese prefecture discovery app built with Astro (SSR) + React (Islands).
 
 ## Tech Stack
 
-- **Framework**: Astro 5 (SSR mode, `output: 'server'`)
+- **Framework**: Astro 6 (SSR mode, `output: 'server'`)
 - **Interactive UI**: React 19 + motion (islands only)
 - **Theming**: `@material/material-color-utilities` (MD3 dynamic theming)
 - **Browser LLM**: Chrome built-in AI (Prompt API) — progressive enhancement
@@ -78,10 +78,11 @@ Tone picker maps to proper MD3 DynamicScheme variants (no hacks):
 
 ## Deployment
 
-- **Target**: Cloudflare Pages (SSR)
-- **Adapter**: `@astrojs/cloudflare`
+- **Target**: Cloudflare Workers (SSR)
+- **Adapter**: `@astrojs/cloudflare` (v13+, Workers mode)
+- **Config**: `wrangler.jsonc` (entrypoint, compatibility flags)
 - **CI**: GitHub Actions (lint, test, build check)
-- **Deploy**: Cloudflare Pages auto-deploy on push to main
+- **Deploy**: Cloudflare auto-deploy on push to main
 
 ## Known Issues
 

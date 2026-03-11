@@ -1,5 +1,5 @@
 import { defineAction } from "astro:actions";
-import { z } from "astro:schema";
+import { z } from "astro/zod";
 import { TONE_KEYS } from "../types/index.ts";
 import { COOKIE_NAME } from "../utils/cookies.ts";
 
@@ -16,6 +16,7 @@ export const server = {
 					path: "/",
 					httpOnly: true,
 					sameSite: "lax",
+					secure: true,
 					maxAge: 60 * 60 * 24 * 365,
 				});
 				return { ok: true };

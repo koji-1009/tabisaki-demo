@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getWishlist, removeFromWishlist } from "../../services/wishlist.ts";
 import type { Prefecture } from "../../types/index.ts";
 import PrefectureCard from "../search/PrefectureCard";
@@ -8,11 +8,7 @@ interface Props {
 }
 
 export default function WishlistManager({ allPrefectures }: Props) {
-	const [items, setItems] = useState<string[]>([]);
-
-	useEffect(() => {
-		setItems(getWishlist().items);
-	}, []);
+	const [items, setItems] = useState(() => getWishlist().items);
 
 	const handleRemove = (id: string) => {
 		removeFromWishlist(id);

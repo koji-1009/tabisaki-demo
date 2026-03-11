@@ -1,5 +1,5 @@
 ---
-import WishlistManager from "../components/wishlist/WishlistManager";
+import WishlistPage from "../components/wishlist/WishlistPage";
 import Layout from "../layouts/Layout.astro";
 import { getPrefectures } from "../services/prefectures.ts";
 
@@ -9,6 +9,6 @@ const prefectures = getPrefectures();
 <Layout title="行きたいリスト">
   <main style="padding: 16px;">
     <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">行きたいリスト</h1>
-    <WishlistManager client:idle allPrefectures={prefectures} />
+    <WishlistPage client:idle allPrefectures={prefectures} />
   </main>
 </Layout>

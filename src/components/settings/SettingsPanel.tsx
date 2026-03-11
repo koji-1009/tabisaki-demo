@@ -1,4 +1,5 @@
 import { actions } from "astro:actions";
+import { navigate } from "astro:transitions/client";
 import { useState } from "react";
 import type { ToneKey } from "../../types/index.ts";
 import { applyTheme } from "../../utils/apply-theme.ts";
@@ -10,27 +11,23 @@ interface Props {
 	initialTone: ToneKey;
 }
 
-type SaveStatus = "idle" | "saving" | "saved";
-
 export default function SettingsPanel({ initialColor, initialTone }: Props) {
 	const [color, setColor] = useState(initialColor);
 	const [tone, setTone] = useState<ToneKey>(initialTone);
-	const [status, setStatus] = useState<SaveStatus>("idle");
+	const [saving, setSaving] = useState(false);
 
 	const handleColorSelect = (c: string) => {
 		setColor(c);
 		applyTheme(c, tone);
-		setStatus("idle");
 	};
 
 	const handleToneSelect = (t: ToneKey) => {
 		setTone(t);
 		applyTheme(color, t);
-		setStatus("idle");
 	};
 
 	const save = async () => {
-		setStatus("saving");
+		setSaving(true);
 		try {
 			const { error } = await actions.preferences.save({
 				color,
@@ -38,9 +35,9 @@ export default function SettingsPanel({ initialColor, initialTone }: Props) {
 				onboarded: true,
 			});
 			if (error) throw error;
-			setStatus("saved");
+			navigate("/settings", { history: "replace" });
 		} catch {
-			setStatus("idle");
+			setSaving(false);
 			alert("保存に失敗しました。もう一度お試しください。");
 		}
 	};
@@ -70,13 +67,9 @@ export default function SettingsPanel({ initialColor, initialTone }: Props) {
 					type="button"
 					style={styles.saveBtn}
 					onClick={save}
-					disabled={status === "saving"}
+					disabled={saving}
 				>
-					{status === "saving"
-						? "保存中..."
-						: status === "saved"
-							? "保存しました！"
-							: "テーマを保存"}
+					{saving ? "保存中..." : "テーマを保存"}
 				</button>
 				<button type="button" style={styles.resetBtn} onClick={reset}>
 					すべてリセット

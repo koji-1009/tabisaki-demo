@@ -85,7 +85,7 @@ const currentPath = Astro.url.pathname;
       window.addEventListener("storage", (e) => {
         if (e.key === "tabisaki_wishlist") updateBadge();
       });
-      // Page load / ViewTransition navigation: read from localStorage
+      // Page load / ClientRouter navigation: read from localStorage
       document.addEventListener("astro:page-load", () => updateBadge());
     </script>
   </body>

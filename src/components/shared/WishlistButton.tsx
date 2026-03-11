@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
 	addToWishlist,
 	isInWishlist,
@@ -11,11 +11,7 @@ interface Props {
 }
 
 export default function WishlistButton({ prefectureId }: Props) {
-	const [inList, setInList] = useState(false);
-
-	useEffect(() => {
-		setInList(isInWishlist(prefectureId));
-	}, [prefectureId]);
+	const [inList, setInList] = useState(() => isInWishlist(prefectureId));
 
 	const toggle = () => {
 		if (inList) {

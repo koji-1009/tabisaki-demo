@@ -9,23 +9,6 @@ const prefecture = getPrefectureById(id ?? "");
 if (!prefecture) {
 	return Astro.redirect("/search");
 }
-
-// Determine back destination from Referer header
-let backHref = "/search";
-let backLabel = "一覧にもどる";
-const referer = Astro.request.headers.get("referer");
-if (referer) {
-	try {
-		const refPath = new URL(referer).pathname;
-		if (refPath === "/discover") {
-			backHref = "/discover";
-			backLabel = "発見にもどる";
-		} else if (refPath === "/chat") {
-			backHref = "/chat";
-			backLabel = "チャットにもどる";
-		}
-	} catch {}
-}
 ---
 
 <Layout title={prefecture.name}>
@@ -60,8 +43,8 @@ if (referer) {
       </div>
 
       <div style="margin-top: 24px; text-align: center;">
-        <a href={backHref} style="color: var(--md-sys-color-primary, #6750a4); font-size: 14px;">
-          ← {backLabel}
+        <a href="/search" style="color: var(--md-sys-color-primary, #6750a4); font-size: 14px;">
+          ← 一覧にもどる
         </a>
       </div>
     </div>
