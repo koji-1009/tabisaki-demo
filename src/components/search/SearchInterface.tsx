@@ -37,11 +37,7 @@ function updateURL(query: string, region: Region | "all") {
 	navigate(url.pathname + url.search, { history: "replace" });
 }
 
-export default function SearchInterface({
-	prefectures,
-	query,
-	region,
-}: Props) {
+export default function SearchInterface({ prefectures, query, region }: Props) {
 	const filtered = useMemo(() => {
 		let results = prefectures;
 		if (query) {
