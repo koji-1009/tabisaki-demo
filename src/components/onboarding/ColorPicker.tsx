@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import styles from "./ColorPicker.module.css";
 
 const colors = [
 	{ hex: "#6750A4", label: "パープル" },
@@ -21,63 +22,23 @@ interface Props {
 export default function ColorPicker({ selected, onSelect }: Props) {
 	return (
 		<div>
-			<h2 style={styles.title}>テーマカラーを選んでね</h2>
-			<p style={styles.subtitle}>好きな色をタップ</p>
-			<div style={styles.grid}>
+			<h2 className={styles.title}>テーマカラーを選んでね</h2>
+			<p className={styles.subtitle}>好きな色をタップ</p>
+			<div className={styles.grid}>
 				{colors.map(({ hex, label }) => (
 					<motion.button
 						key={hex}
 						type="button"
 						whileTap={{ scale: 0.9 }}
 						onClick={() => onSelect(hex)}
-						style={{
-							...styles.swatch,
-							background: hex,
-							outline:
-								selected === hex
-									? "3px solid var(--md-sys-color-on-background, #1c1b1f)"
-									: "none",
-							outlineOffset: "2px",
-						}}
+						className={`${styles.swatch} ${selected === hex ? styles.swatchSelected : ""}`}
+						style={{ background: hex }}
 						aria-label={label}
 					>
-						{selected === hex && <span style={styles.check}>✓</span>}
+						{selected === hex && <span className={styles.check}>✓</span>}
 					</motion.button>
 				))}
 			</div>
 		</div>
 	);
 }
-
-const styles: Record<string, React.CSSProperties> = {
-	title: {
-		fontSize: "24px",
-		fontWeight: 700,
-		textAlign: "center",
-		marginBottom: "8px",
-	},
-	subtitle: {
-		fontSize: "14px",
-		textAlign: "center",
-		color: "var(--md-sys-color-on-surface-variant, #49454f)",
-		marginBottom: "24px",
-	},
-	grid: {
-		display: "grid",
-		gridTemplateColumns: "repeat(5, 1fr)",
-		gap: "12px",
-		maxWidth: "320px",
-		margin: "0 auto",
-	},
-	swatch: {
-		width: "56px",
-		height: "56px",
-		borderRadius: "50%",
-		border: "none",
-		cursor: "pointer",
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "center",
-	},
-	check: { color: "#fff", fontSize: "20px", fontWeight: 700 },
-};

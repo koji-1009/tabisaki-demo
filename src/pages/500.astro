@@ -1,14 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import styles from "./500.module.css";
 ---
 
 <Layout title="エラー">
-  <main style="padding: 48px 16px; text-align: center;">
-    <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 12px;">エラーが発生しました</h1>
-    <p style="font-size: 14px; color: var(--md-sys-color-on-surface-variant, #49454f); margin-bottom: 24px; line-height: 1.6;">
+  <main class={styles.main}>
+    <h1 class={styles.title}>エラーが発生しました</h1>
+    <p class={styles.description}>
       申し訳ありません。ページの表示中にエラーが発生しました。
     </p>
-    <a href="/search" style="display: inline-block; padding: 12px 24px; border-radius: 24px; background: var(--md-sys-color-primary, #6750a4); color: var(--md-sys-color-on-primary, #fff); font-weight: 600; text-decoration: none;">
+    <a href="/search" class={styles.link}>
       トップに戻る
     </a>
   </main>

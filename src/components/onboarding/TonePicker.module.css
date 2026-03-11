@@ -1,0 +1,48 @@
+.title {
+	font-size: 24px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+.subtitle {
+	font-size: 14px;
+	text-align: center;
+	color: var(--md-sys-color-on-surface-variant, #49454f);
+	margin-bottom: 24px;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 16px;
+	border-radius: 12px;
+	border: 2px solid var(--md-sys-color-outline-variant, #cac4d0);
+	background: var(--md-sys-color-surface, #fffbfe);
+	color: var(--md-sys-color-on-surface, #1c1b1f);
+	cursor: pointer;
+	text-align: left;
+	width: 100%;
+}
+
+.cardSelected {
+	border-color: var(--md-sys-color-primary, #6750a4);
+	background: var(--md-sys-color-primary-container, #eaddff);
+	color: var(--md-sys-color-on-primary-container, #21005d);
+}
+
+.label {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.desc {
+	font-size: 13px;
+}

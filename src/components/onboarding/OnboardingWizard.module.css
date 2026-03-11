@@ -1,0 +1,28 @@
+.footer {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+	margin-top: 32px;
+}
+
+.next {
+	padding: 12px 32px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 24px;
+	border: none;
+	background: var(--md-sys-color-primary, #6750a4);
+	color: var(--md-sys-color-on-primary, #fff);
+	cursor: pointer;
+}
+
+.back {
+	padding: 12px 32px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 24px;
+	border: 2px solid var(--md-sys-color-outline, #79747e);
+	background: transparent;
+	color: var(--md-sys-color-on-surface, #1c1b1f);
+	cursor: pointer;
+}

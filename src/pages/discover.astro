@@ -3,6 +3,7 @@ import DiscoverPage from "../components/discover/DiscoverPage";
 import activitiesData from "../data/activities.json";
 import Layout from "../layouts/Layout.astro";
 import { getPrefectures } from "../services/prefectures.ts";
+import pageStyles from "../styles/page.module.css";
 import {
 	ACTIVITY_IDS,
 	type Activity,
@@ -22,11 +23,11 @@ const initialActivities = activitiesParam
 ---
 
 <Layout title="発見">
-  <main style="padding: 16px;">
-    <DiscoverPage client:idle prefectures={prefectures} activities={activities} initialActivities={initialActivities} />
-    <div style="text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--md-sys-color-outline-variant, #cac4d0);">
-      <p style="font-size: 13px; color: var(--md-sys-color-on-surface-variant, #49454f); margin-bottom: 8px;">もっと自由に相談したい？</p>
-      <a href="/chat" style="font-size: 14px; font-weight: 600; color: var(--md-sys-color-tertiary, #7d5260);">
+  <main class={pageStyles.main}>
+    <DiscoverPage client:idle prefectures={prefectures} activities={activities} selected={initialActivities} />
+    <div class={pageStyles.chatFooter}>
+      <p class={pageStyles.chatFooterText}>もっと自由に相談したい？</p>
+      <a href="/chat" class={pageStyles.chatFooterLink}>
         AIチャットで相談する →
       </a>
     </div>

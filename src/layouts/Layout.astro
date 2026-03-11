@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import styles from "./Layout.module.css";
 
 interface Props {
 	title: string;
@@ -48,13 +49,13 @@ const currentPath = Astro.url.pathname;
   </head>
   <body>
     {!hideNav && (
-      <header transition:animate="none" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--md-sys-color-outline-variant, #cac4d0); gap: 16px;">
-        <a href="/search" style="font-weight: 700; font-size: 18px; color: var(--md-sys-color-on-background, #1c1b1f); text-decoration: none; margin-right: auto;">たびさき</a>
-        <nav aria-label="メインナビゲーション" style="display: flex; gap: 16px;">
-          <a href="/search" aria-current={currentPath === "/search" ? "page" : undefined} style={`font-size: 13px; text-decoration: none; color: ${currentPath === "/search" ? "var(--md-sys-color-primary, #6750a4)" : "var(--md-sys-color-on-surface-variant, #49454f)"};${currentPath === "/search" ? " font-weight: 600;" : ""}`}>さがす</a>
-          <a href="/discover" aria-current={currentPath === "/discover" ? "page" : undefined} style={`font-size: 13px; text-decoration: none; color: ${currentPath === "/discover" ? "var(--md-sys-color-primary, #6750a4)" : "var(--md-sys-color-on-surface-variant, #49454f)"};${currentPath === "/discover" ? " font-weight: 600;" : ""}`}>発見</a>
-          <a href="/wishlist" aria-current={currentPath === "/wishlist" ? "page" : undefined} style={`font-size: 13px; text-decoration: none; color: ${currentPath === "/wishlist" ? "var(--md-sys-color-primary, #6750a4)" : "var(--md-sys-color-on-surface-variant, #49454f)"};${currentPath === "/wishlist" ? " font-weight: 600;" : ""} position: relative;`}>行きたい<span id="wishlist-badge" style="display: none; position: absolute; top: -6px; right: -14px; min-width: 16px; height: 16px; border-radius: 8px; background: var(--md-sys-color-tertiary, #7d5260); color: var(--md-sys-color-on-tertiary, #fff); font-size: 10px; font-weight: 700; line-height: 16px; text-align: center; padding: 0 3px;" /></a>
-          <a href="/settings" aria-current={currentPath === "/settings" ? "page" : undefined} style={`font-size: 13px; text-decoration: none; color: ${currentPath === "/settings" ? "var(--md-sys-color-primary, #6750a4)" : "var(--md-sys-color-on-surface-variant, #49454f)"};${currentPath === "/settings" ? " font-weight: 600;" : ""}`}>設定</a>
+      <header transition:animate="none" class={styles.header}>
+        <a href="/search" class={styles.logo}>たびさき</a>
+        <nav aria-label="メインナビゲーション" class={styles.nav}>
+          <a href="/search" aria-current={currentPath === "/search" ? "page" : undefined} class={currentPath === "/search" ? styles.navLinkActive : styles.navLink}>さがす</a>
+          <a href="/discover" aria-current={currentPath === "/discover" ? "page" : undefined} class={currentPath === "/discover" ? styles.navLinkActive : styles.navLink}>発見</a>
+          <a href="/wishlist" aria-current={currentPath === "/wishlist" ? "page" : undefined} class={`${currentPath === "/wishlist" ? styles.navLinkActive : styles.navLink} ${styles.wishlistLink}`}>行きたい<span id="wishlist-badge" class={styles.badge} style="display: none;" /></a>
+          <a href="/settings" aria-current={currentPath === "/settings" ? "page" : undefined} class={currentPath === "/settings" ? styles.navLinkActive : styles.navLink}>設定</a>
         </nav>
       </header>
     )}

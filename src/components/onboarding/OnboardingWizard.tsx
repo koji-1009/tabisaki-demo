@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { ToneKey } from "../../types/index.ts";
 import { applyTheme } from "../../utils/apply-theme.ts";
 import ColorPicker from "./ColorPicker";
+import styles from "./OnboardingWizard.module.css";
 import PathSelector from "./PathSelector";
 import TonePicker from "./TonePicker";
 
@@ -66,11 +67,11 @@ export default function OnboardingWizard() {
 			</AnimatePresence>
 
 			{canProceed && (
-				<div style={styles.footer}>
+				<div className={styles.footer}>
 					{step === "tone" && (
 						<button
 							type="button"
-							style={styles.back}
+							className={styles.back}
 							onClick={() => setStep("color")}
 						>
 							もどる
@@ -78,7 +79,7 @@ export default function OnboardingWizard() {
 					)}
 					<button
 						type="button"
-						style={styles.next}
+						className={styles.next}
 						onClick={() => setStep(step === "color" ? "tone" : "path")}
 					>
 						つぎへ
@@ -88,32 +89,3 @@ export default function OnboardingWizard() {
 		</div>
 	);
 }
-
-const styles: Record<string, React.CSSProperties> = {
-	footer: {
-		display: "flex",
-		justifyContent: "center",
-		gap: "12px",
-		marginTop: "32px",
-	},
-	next: {
-		padding: "12px 32px",
-		fontSize: "16px",
-		fontWeight: 600,
-		borderRadius: "24px",
-		border: "none",
-		background: "var(--md-sys-color-primary, #6750a4)",
-		color: "var(--md-sys-color-on-primary, #fff)",
-		cursor: "pointer",
-	},
-	back: {
-		padding: "12px 32px",
-		fontSize: "16px",
-		fontWeight: 600,
-		borderRadius: "24px",
-		border: "2px solid var(--md-sys-color-outline, #79747e)",
-		background: "transparent",
-		color: "var(--md-sys-color-on-surface, #1c1b1f)",
-		cursor: "pointer",
-	},
-};

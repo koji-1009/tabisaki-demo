@@ -2,6 +2,7 @@
 import WishlistButton from "../../components/shared/WishlistButton";
 import Layout from "../../layouts/Layout.astro";
 import { getPrefectureById } from "../../services/prefectures.ts";
+import styles from "./PrefectureDetail.module.css";
 
 const { id } = Astro.params;
 const prefecture = getPrefectureById(id ?? "");
@@ -12,38 +13,38 @@ if (!prefecture) {
 ---
 
 <Layout title={prefecture.name}>
-  <main style="padding: 0;">
-    <div aria-hidden="true" style={`height: 200px; background: var(--md-sys-color-primary-container, #eaddff); display: flex; align-items: center; justify-content: center;`}>
-      <span style="font-size: 48px; font-weight: 700; color: var(--md-sys-color-on-primary-container, #21005d);">
+  <main class={styles.main}>
+    <div aria-hidden="true" class={styles.hero}>
+      <span class={styles.heroName}>
         {prefecture.name}
       </span>
     </div>
 
-    <div style="padding: 24px 16px;">
-      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
-        <h1 style="font-size: 28px; font-weight: 700;">{prefecture.name}</h1>
-        <span style="font-size: 14px; color: var(--md-sys-color-on-surface-variant, #49454f);">{prefecture.nameEn}</span>
+    <div class={styles.content}>
+      <div class={styles.titleRow}>
+        <h1 class={styles.title}>{prefecture.name}</h1>
+        <span class={styles.titleEn}>{prefecture.nameEn}</span>
       </div>
 
-      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
+      <p class={styles.description}>
         {prefecture.description}
       </p>
 
-      <h2 style="font-size: 18px; font-weight: 600; margin-bottom: 12px;">みどころ</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+      <h2 class={styles.sectionTitle}>みどころ</h2>
+      <div class={styles.highlights}>
         {prefecture.highlights.map((h) => (
-          <span style="padding: 6px 14px; border-radius: 16px; font-size: 14px; background: var(--md-sys-color-secondary-container, #e8def8); color: var(--md-sys-color-on-secondary-container, #1d192b);">
+          <span class={styles.highlightTag}>
             {h}
           </span>
         ))}
       </div>
 
-      <div style="text-align: center;">
+      <div class={styles.wishlistArea}>
         <WishlistButton client:idle prefectureId={prefecture.id} />
       </div>
 
-      <div style="margin-top: 24px; text-align: center;">
-        <a href="/search" style="color: var(--md-sys-color-primary, #6750a4); font-size: 14px;">
+      <div class={styles.backLink}>
+        <a href="/search" class={styles.backLinkText}>
           ← 一覧にもどる
         </a>
       </div>

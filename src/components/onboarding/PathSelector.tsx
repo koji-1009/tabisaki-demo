@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import styles from "./PathSelector.module.css";
 
 interface Props {
 	onSelect: (path: string) => void;
@@ -20,11 +21,11 @@ export default function PathSelector({ onSelect, disabled }: Props) {
 						exit={{ opacity: 0, x: -30 }}
 						transition={{ duration: 0.25 }}
 					>
-						<h2 style={styles.title}>行きたい都道府県は決まってる？</h2>
-						<div style={styles.buttons}>
+						<h2 className={styles.title}>行きたい都道府県は決まってる？</h2>
+						<div className={styles.buttons}>
 							<button
 								type="button"
-								style={styles.btn}
+								className={styles.btn}
 								onClick={() => onSelect("/search")}
 								disabled={disabled}
 							>
@@ -32,7 +33,7 @@ export default function PathSelector({ onSelect, disabled }: Props) {
 							</button>
 							<button
 								type="button"
-								style={styles.btnOutline}
+								className={styles.btnOutline}
 								onClick={() => setSubStep("activity")}
 								disabled={disabled}
 							>
@@ -48,11 +49,11 @@ export default function PathSelector({ onSelect, disabled }: Props) {
 						exit={{ opacity: 0, x: -30 }}
 						transition={{ duration: 0.25 }}
 					>
-						<h2 style={styles.title}>やりたいことは決まってる？</h2>
-						<div style={styles.buttons}>
+						<h2 className={styles.title}>やりたいことは決まってる？</h2>
+						<div className={styles.buttons}>
 							<button
 								type="button"
-								style={styles.btn}
+								className={styles.btn}
 								onClick={() => onSelect("/discover")}
 								disabled={disabled}
 							>
@@ -60,7 +61,7 @@ export default function PathSelector({ onSelect, disabled }: Props) {
 							</button>
 							<button
 								type="button"
-								style={styles.btnOutline}
+								className={styles.btnOutline}
 								onClick={() => onSelect("/chat")}
 								disabled={disabled}
 							>
@@ -73,33 +74,3 @@ export default function PathSelector({ onSelect, disabled }: Props) {
 		</div>
 	);
 }
-
-const styles: Record<string, React.CSSProperties> = {
-	title: {
-		fontSize: "24px",
-		fontWeight: 700,
-		textAlign: "center",
-		marginBottom: "32px",
-	},
-	buttons: { display: "flex", flexDirection: "column", gap: "12px" },
-	btn: {
-		padding: "16px",
-		fontSize: "16px",
-		fontWeight: 600,
-		borderRadius: "12px",
-		border: "none",
-		background: "var(--md-sys-color-primary, #6750a4)",
-		color: "var(--md-sys-color-on-primary, #fff)",
-		cursor: "pointer",
-	},
-	btnOutline: {
-		padding: "16px",
-		fontSize: "16px",
-		fontWeight: 600,
-		borderRadius: "12px",
-		border: "2px solid var(--md-sys-color-outline, #79747e)",
-		background: "transparent",
-		color: "var(--md-sys-color-on-surface, #1c1b1f)",
-		cursor: "pointer",
-	},
-};

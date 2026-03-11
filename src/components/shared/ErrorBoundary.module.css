@@ -1,0 +1,21 @@
+.container {
+	text-align: center;
+	padding: 48px 16px;
+}
+
+.text {
+	font-size: 15px;
+	color: var(--md-sys-color-on-surface-variant, #49454f);
+	margin-bottom: 16px;
+}
+
+.btn {
+	padding: 12px 24px;
+	border-radius: 24px;
+	border: 1px solid var(--md-sys-color-outline, #79747e);
+	background: transparent;
+	color: var(--md-sys-color-on-surface, #1c1b1f);
+	font-weight: 600;
+	font-size: 14px;
+	cursor: pointer;
+}

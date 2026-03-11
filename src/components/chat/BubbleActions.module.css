@@ -1,0 +1,48 @@
+.actions {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-top: 10px;
+}
+
+.activityStrip {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 10px 12px;
+	border-radius: 12px;
+	background: var(--md-sys-color-surface-container, #f3edf7);
+}
+
+.activityChips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.activityChip {
+	font-size: 12px;
+	padding: 4px 10px;
+	border-radius: 12px;
+	background: var(--md-sys-color-secondary-container, #e8def8);
+	color: var(--md-sys-color-on-secondary-container, #1d192b);
+	font-weight: 500;
+}
+
+.discoverLink {
+	display: block;
+	text-align: center;
+	padding: 8px 16px;
+	border-radius: 20px;
+	background: var(--md-sys-color-tertiary, #7d5260);
+	color: var(--md-sys-color-on-tertiary, #fff);
+	font-weight: 600;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.suggestions {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}

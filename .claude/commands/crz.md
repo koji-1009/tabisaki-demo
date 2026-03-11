@@ -139,7 +139,7 @@ Choose the lowest layer that meets the requirement:
 
 1. `<form method="POST">` with PRG — pure HTML. No Action, no JS. Use for server-side processing without data mutation (analysis, search, conversion). POST stores results in `Astro.session` and redirects to the same URL. GET reads from session and renders. This avoids the browser's "resubmit form?" warning on reload
 2. `<form action={actions.createItem}>` — HTML + Action. Still zero JS. Use when the POST mutates server-side data (create, update, delete) and needs type-safe validation
-3. Island calls `actions.createItem()` — JS required. Use only when the UI must update before, during, or after submission (validation, progress, error display)
+3. Island calls `actions.createItem()` — JS required. Use only when the mutation requires JS to modify the DOM (disable button, show spinner, display error, update list without reload)
 
 PRG pattern (layer 1):
 
@@ -245,8 +245,7 @@ import { ClientRouter } from "astro:transitions";
 * Elements that appear on every page (header, sidebar, navigation): `transition:animate="none"`
 * Content area: `transition:animate="fade"` only
 * Use `astro:page-load` instead of `DOMContentLoaded`
-* Avoid `slide` / `morph` — bitmap text stretching
-* Avoid multiple `transition:name` — unintended morph on collision
+* Prohibited: `transition:animate="slide"`, `transition:animate="morph"`, multiple `transition:name` on the same page
 * Never call `history.pushState()` or `history.replaceState()` in islands — ClientRouter stores navigation data in `history.state`. Overwriting it breaks browser back/forward. To update URL query params (filters, pagination), use `navigate()` from `astro:transitions/client` or `<a>` with the new query string
 * Disable when the layout component changes (e.g., login → dashboard) — use `window.location.href` for hard navigation instead of `navigate()`
 * Disable for non-HTML responses
@@ -289,11 +288,11 @@ The server is the source of correctness. Test the server thoroughly; verify isla
 
 After applying CRZ principles, review every change against these checks before finalizing:
 
-1. **Simplicity check**
-   * Did the change add a layer, abstraction, or intermediate state? Is that layer actually needed, or does a simpler mechanism (SSR props, direct DOM update, existing browser API) already solve the problem? Remove any layer that exists only to satisfy a principle rather than to solve a real problem.
-2. **Blast radius check**
+1. **Blast radius check**
    * For each new layer or pattern introduced, answer: "What happens if this breaks?" If the answer is "nothing, because the layer below already handles it," the layer is redundant.
+2. **Canonical source honesty**
+   * Is the declared canonical source genuinely authoritative, or is it a derived cache being treated as one? A sessionStorage copy of server data is a cache, not a canonical source. Name the actual authority and acknowledge stopgaps as stopgaps.
 3. **Dead code check**
    * Are all exported functions called? Unused initializers, sync functions, or cache hydration calls indicate an over-designed layer.
-4. **Canonical source honesty**
-   * Is the declared canonical source genuinely authoritative, or is it a derived cache being treated as one? A sessionStorage copy of server data is a cache, not a canonical source. Name the actual authority and acknowledge stopgaps as stopgaps.
+4. **Simplicity check**
+   * Did the change add a layer, abstraction, or intermediate state? Is that layer actually needed, or does a simpler mechanism (SSR props, direct DOM update, existing browser API) already solve the problem? Remove any layer that exists only to satisfy a principle rather than to solve a real problem.

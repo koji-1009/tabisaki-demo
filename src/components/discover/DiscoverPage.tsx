@@ -5,7 +5,7 @@ import DiscoverWizard from "./DiscoverWizard";
 interface Props {
 	prefectures: Prefecture[];
 	activities: Activity[];
-	initialActivities?: ActivityId[];
+	selected: ActivityId[];
 }
 
 export default function DiscoverPage(props: Props) {

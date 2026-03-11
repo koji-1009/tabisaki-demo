@@ -4,8 +4,8 @@ import SearchInterface from "./SearchInterface";
 
 interface Props {
 	prefectures: Prefecture[];
-	initialQuery?: string;
-	initialRegion?: Region | "all";
+	query: string;
+	region: Region | "all";
 }
 
 export default function SearchPage(props: Props) {

@@ -1,0 +1,53 @@
+.header {
+	display: flex;
+	align-items: center;
+	padding: 12px 16px;
+	border-bottom: 1px solid var(--md-sys-color-outline-variant, #cac4d0);
+	gap: 16px;
+}
+
+.logo {
+	font-weight: 700;
+	font-size: 18px;
+	color: var(--md-sys-color-on-background, #1c1b1f);
+	text-decoration: none;
+	margin-right: auto;
+}
+
+.nav {
+	display: flex;
+	gap: 16px;
+}
+
+.navLink {
+	font-size: 13px;
+	text-decoration: none;
+	color: var(--md-sys-color-on-surface-variant, #49454f);
+}
+
+.navLinkActive {
+	font-size: 13px;
+	text-decoration: none;
+	color: var(--md-sys-color-primary, #6750a4);
+	font-weight: 600;
+}
+
+.wishlistLink {
+	position: relative;
+}
+
+.badge {
+	position: absolute;
+	top: -6px;
+	right: -14px;
+	min-width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	background: var(--md-sys-color-tertiary, #7d5260);
+	color: var(--md-sys-color-on-tertiary, #fff);
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 16px;
+	text-align: center;
+	padding: 0 3px;
+}

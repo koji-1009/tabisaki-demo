@@ -1,11 +1,13 @@
-import { useMemo, useState } from "react";
+import { navigate } from "astro:transitions/client";
+import { useMemo } from "react";
 import type { Prefecture, Region } from "../../types/index.ts";
 import PrefectureCard from "./PrefectureCard";
+import styles from "./SearchInterface.module.css";
 
 interface Props {
 	prefectures: Prefecture[];
-	initialQuery?: string;
-	initialRegion?: Region | "all";
+	query: string;
+	region: Region | "all";
 }
 
 const regions: { key: Region | "all"; label: string }[] = [
@@ -20,14 +22,26 @@ const regions: { key: Region | "all"; label: string }[] = [
 	{ key: "kyushu", label: "九州・沖縄" },
 ];
 
+function updateURL(query: string, region: Region | "all") {
+	const url = new URL(window.location.href);
+	if (query) {
+		url.searchParams.set("q", query);
+	} else {
+		url.searchParams.delete("q");
+	}
+	if (region !== "all") {
+		url.searchParams.set("region", region);
+	} else {
+		url.searchParams.delete("region");
+	}
+	navigate(url.pathname + url.search, { history: "replace" });
+}
+
 export default function SearchInterface({
 	prefectures,
-	initialQuery = "",
-	initialRegion = "all",
+	query,
+	region,
 }: Props) {
-	const [query, setQuery] = useState(initialQuery);
-	const [region, setRegion] = useState<Region | "all">(initialRegion);
-
 	const filtered = useMemo(() => {
 		let results = prefectures;
 		if (query) {
@@ -48,41 +62,40 @@ export default function SearchInterface({
 
 	return (
 		<div>
-			<label htmlFor="pref-search" style={styles.srOnly}>
+			<label htmlFor="pref-search" className={styles.srOnly}>
 				都道府県を検索
 			</label>
 			<input
 				id="pref-search"
 				type="text"
 				placeholder="都道府県を検索..."
-				value={query}
-				onChange={(e) => setQuery(e.target.value)}
-				style={styles.input}
+				defaultValue={query}
+				onBlur={(e) => {
+					if (e.target.value !== query) {
+						updateURL(e.target.value, region);
+					}
+				}}
+				onKeyDown={(e) => {
+					if (e.key === "Enter" && !e.nativeEvent.isComposing) {
+						updateURL(e.currentTarget.value, region);
+					}
+				}}
+				className={styles.input}
 			/>
-			<div style={styles.chips}>
+			<div className={styles.chips}>
 				{regions.map((r) => (
 					<button
 						key={r.key}
 						type="button"
-						onClick={() => setRegion(r.key)}
-						style={{
-							...styles.chip,
-							background:
-								region === r.key
-									? "var(--md-sys-color-secondary-container, #e8def8)"
-									: "var(--md-sys-color-surface-container-high, #ece6f0)",
-							color:
-								region === r.key
-									? "var(--md-sys-color-on-secondary-container, #1d192b)"
-									: "var(--md-sys-color-on-surface-variant, #49454f)",
-						}}
+						onClick={() => updateURL(query, r.key)}
+						className={region === r.key ? styles.chipSelected : styles.chip}
 					>
 						{r.label}
 					</button>
 				))}
 			</div>
-			<p style={styles.count}>{filtered.length}件</p>
-			<div style={styles.grid}>
+			<p className={styles.count}>{filtered.length}件</p>
+			<div className={styles.grid}>
 				{filtered.map((p) => (
 					<PrefectureCard key={p.id} prefecture={p} />
 				))}
@@ -90,52 +103,3 @@ export default function SearchInterface({
 		</div>
 	);
 }
-
-const styles: Record<string, React.CSSProperties> = {
-	input: {
-		width: "100%",
-		padding: "12px 16px",
-		fontSize: "16px",
-		borderRadius: "12px",
-		border: "1px solid var(--md-sys-color-outline-variant, #cac4d0)",
-		background: "var(--md-sys-color-surface-container-low, #f7f2fa)",
-		color: "var(--md-sys-color-on-surface, #1c1b1f)",
-		outline: "none",
-		marginBottom: "12px",
-	},
-	chips: {
-		display: "flex",
-		flexWrap: "wrap",
-		gap: "8px",
-		marginBottom: "16px",
-	},
-	chip: {
-		padding: "6px 14px",
-		fontSize: "13px",
-		borderRadius: "16px",
-		border: "none",
-		cursor: "pointer",
-		fontWeight: 500,
-	},
-	srOnly: {
-		position: "absolute",
-		width: "1px",
-		height: "1px",
-		padding: 0,
-		margin: "-1px",
-		overflow: "hidden",
-		clip: "rect(0,0,0,0)",
-		whiteSpace: "nowrap",
-		border: 0,
-	},
-	count: {
-		fontSize: "13px",
-		color: "var(--md-sys-color-on-surface-variant, #49454f)",
-		marginBottom: "12px",
-	},
-	grid: {
-		display: "grid",
-		gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-		gap: "16px",
-	},
-};

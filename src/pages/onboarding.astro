@@ -1,11 +1,12 @@
 ---
 import OnboardingWizard from "../components/onboarding/OnboardingWizard";
 import Layout from "../layouts/Layout.astro";
+import pageStyles from "../styles/page.module.css";
 ---
 
 <Layout title="はじめに" hideNav>
-  <main style="min-height: 100dvh; display: flex; align-items: center; justify-content: center;">
-    <div style="width: 100%; max-width: 480px; padding: 24px;">
+  <main class={pageStyles.onboardingMain}>
+    <div class={pageStyles.onboardingContainer}>
       <OnboardingWizard client:load />
     </div>
   </main>

@@ -5,6 +5,7 @@ import {
 	isInWishlist,
 	removeFromWishlist,
 } from "../../services/wishlist.ts";
+import styles from "./WishlistButton.module.css";
 
 interface Props {
 	prefectureId: string;
@@ -28,29 +29,9 @@ export default function WishlistButton({ prefectureId }: Props) {
 			type="button"
 			whileTap={{ scale: 0.9 }}
 			onClick={toggle}
-			style={{
-				...styles.button,
-				background: inList
-					? "var(--md-sys-color-tertiary, #7d5260)"
-					: "var(--md-sys-color-surface-container-high, #ece6f0)",
-				color: inList
-					? "var(--md-sys-color-on-tertiary, #fff)"
-					: "var(--md-sys-color-on-surface, #1c1b1f)",
-			}}
+			className={inList ? styles.buttonActive : styles.button}
 		>
 			{inList ? "行きたいリストから外す" : "行きたい！"}
 		</motion.button>
 	);
 }
-
-const styles: Record<string, React.CSSProperties> = {
-	button: {
-		padding: "12px 24px",
-		fontSize: "16px",
-		fontWeight: 600,
-		borderRadius: "24px",
-		border: "none",
-		cursor: "pointer",
-		transition: "background 0.2s, color 0.2s",
-	},
-};
