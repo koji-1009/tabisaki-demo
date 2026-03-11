@@ -6,6 +6,10 @@ export default defineConfig({
 	output: "server",
 	adapter: cloudflare(),
 	integrations: [react()],
+	build: {
+		client: "./",
+		server: "./_worker.js",
+	},
 	vite: {
 		ssr: {
 			noExternal: ["@material/material-color-utilities"],
