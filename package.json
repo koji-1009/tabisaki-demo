@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/fix-pages-config.mjs",
     "preview": "wrangler dev",
     "check": "npx @biomejs/biome check .",
     "format": "npx @biomejs/biome check --write .",
