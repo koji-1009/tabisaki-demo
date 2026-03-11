@@ -1,9 +1,6 @@
 {
 	"name": "tabisaki-demo",
-	"main": "@astrojs/cloudflare/entrypoints/server",
 	"compatibility_date": "2025-01-01",
-	"compatibility_flags": ["nodejs_compat"],
-	"assets": {
-		"directory": "dist/client"
-	}
+	"compatibility_flags": ["nodejs_compat", "disable_nodejs_process_v2"],
+	"pages_build_output_dir": "./dist"
 }
