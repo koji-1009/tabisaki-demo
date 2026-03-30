@@ -22,7 +22,7 @@ When concerns conflict, choose in this order:
 1. HTML / Browser APIs
    * Never breaks. Use as foundation. Semantic correctness (`<button>`, not `<div onclick>`) is the precondition
 2. CSS
-   * Breaks visually only. No functional impact
+   * Breaks visually only. No functional impact. Interactions achievable with `:hover`, `:focus`, `::after`, `:target`, or `<details>`/`<summary>` belong here — not in an island
 3. Stateless island (props only)
    * Safe if inputs are correct. Guarantee inputs server-side
 4. Stateful island (local state)
@@ -34,6 +34,8 @@ Islands in layers 3-4 should be wrapped in each framework's error boundary mecha
 
 Server-side errors: provide `pages/500.astro` for unhandled exceptions. In `---` frontmatter, catch expected errors (DB failures, external API errors) and render an error state in HTML. Action handlers throw `ActionError` with appropriate codes — the calling island or form receives the error and displays feedback.
 
+Partial failure: when frontmatter fetches from multiple sources, catch each independently. Display successful results and show a warning banner for failed sources. Do not fail the entire page because one source is unavailable — this applies "Recoverability > Continuity" at the data level.
+
 ## Component Decisions
 
 Use Astro (.astro) by default:
@@ -44,7 +46,7 @@ Use Astro (.astro) by default:
 Use islands only when local state is required:
 
 * Forms with validation or dynamic fields
-* Dialogs with open/close state
+* Dialogs with internal state (validation, dynamic fields, multi-step)
 * Real-time calculations (price, filtering)
 * Browser-native APIs (Geolocation, Web Speech)
 
@@ -56,6 +58,23 @@ Client directives:
 * `client:load` — elements the user interacts with before scrolling (search box, primary navigation toggle)
 * `client:visible` — for below-the-fold content
 
+Server Islands (`server:defer`):
+
+Defer server rendering of auxiliary components. The page loads with fallback content; the component renders asynchronously via a separate server request.
+
+When to use frontmatter (default):
+
+* Page's main content — block SSR to guarantee delivery
+* Auxiliary content needed immediately — use partial failure pattern on error
+* Content whose absence would mislead the user
+
+When to use `server:defer`:
+
+* Expensive computation where the user expects loading time (analytics charts, aggregated reports)
+* Personalized content on an otherwise cacheable page (user profile widget on a public page)
+
+Fallback design: if the Server Island fails, the fallback remains silently — no error UI, no retry. Design the fallback as content meaningful on its own, not just a loading indicator.
+
 Decision test:
 
 1. Does it need DOM manipulation without state (dialog.showModal(), scroll-to-top, clipboard copy)?
@@ -63,6 +82,18 @@ Decision test:
 2. Does it declare local state? (useState / ref() / $state)
    * No → Astro component
    * Yes → Island. Group values that change together (e.g., form fields) into a single state object. Keep independently changing values as separate declarations. If the island's state serves more than one user interaction, split each interaction into its own island
+
+Island verification — before writing an island, confirm each hook is necessary:
+
+* useState holding server data → pass as props from frontmatter. No island needed
+* useState for tooltip/hover display → HTML `title` attribute or CSS `:hover`. No island needed
+* useState for scroll/carousel position → CSS `overflow-x: auto`. No island needed
+* useState for filter/sort selection → URL query params + server-side filtering. No island needed
+* useEffect fetching data → move to frontmatter. Never fetch in islands
+* useEffect syncing URL → URL is canonical. Use `<a>` or `navigate()`
+* useEffect for DOM manipulation without state → use `<script>` tag
+
+If all state values are replaceable, the island is unnecessary — rewrite as `.astro` component or `<script>`.
 
 For the fuller decision model including navigation-first evaluation, see architecture.md section 5.1.
 
@@ -91,13 +122,15 @@ const items = await getItems();
 
 Canonical sources (same value on every read):
 
-| State              | Where                          | Why                                                 |
-| ------------------ | ------------------------------ | --------------------------------------------------- |
-| Auth / session     | HttpOnly Cookie                | Server-readable, hidden from JS                     |
-| Current page       | URL path                       | Browser-managed                                     |
-| Filters/pagination | URL query params               | Bookmarkable, shareable                             |
-| In-progress data   | sessionStorage                 | Per-tab, survives navigation                        |
-| User preferences   | HttpOnly Cookie / localStorage | Cookie if server reads; localStorage if client-only |
+| State                                                      | Where                                           | Why                                                                                    |
+| ---------------------------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Auth / session                                             | HttpOnly Cookie                                 | Server-readable, hidden from JS                                                        |
+| Current page                                               | URL path                                        | Browser-managed                                                                        |
+| View state (filters, pagination, sort, search, active tab) | URL query params                                | Shareable, bookmarkable, reproducible — with or without authentication                 |
+| In-progress data                                           | sessionStorage                                  | Per-tab, survives navigation                                                           |
+| User preferences                                           | Server-side DB / HttpOnly Cookie / localStorage | DB if backend exists; cookie if BFF-only and server reads; localStorage if client-only |
+
+URL vs cookie is not about authentication — it is about state type. View state (what you are looking at) always goes in the URL, even in authenticated apps. Identity state (who you are) goes in cookies. Preference state (how you want things) goes in DB or cookies. When URL params and cookie defaults overlap, URL params take precedence.
 
 Transient state (lost on reload):
 
@@ -115,7 +148,7 @@ Never use:
 
 Server handles correctness, client provides feedback as a crumple zone.
 
-All client-initiated mutations must use Astro Actions (`astro:actions`). Actions provide type-safe server functions with built-in Zod validation — the caller gets compile-time type errors if the contract is violated. Navigation without data change uses `<a>` or `navigate()` — not an Action.
+Client-initiated mutations that accept user input requiring validation must use Astro Actions (`astro:actions`). Actions provide type-safe server functions with built-in Zod validation — the caller gets compile-time type errors if the contract is violated. Mutations without user input (logout, session clear) use `<form method="POST">` with PRG — no Action needed. Navigation without data change uses `<a>` or `navigate()` — not an Action.
 
 ```typescript
 // src/actions/index.ts
@@ -137,8 +170,8 @@ export const server = {
 
 Choose the lowest layer that meets the requirement:
 
-1. `<form method="POST">` with PRG — pure HTML. No Action, no JS. Use for server-side processing without data mutation (analysis, search, conversion). POST stores results in `Astro.session` and redirects to the same URL. GET reads from session and renders. This avoids the browser's "resubmit form?" warning on reload
-2. `<form action={actions.createItem}>` — HTML + Action. Still zero JS. Use when the POST mutates server-side data (create, update, delete) and needs type-safe validation
+1. `<form method="POST">` with PRG — pure HTML. No Action, no JS. Use when the form carries no user-authored content (logout, deletion by ID, re-processing a previous result). POST processes the request, stores results in `Astro.session` if needed, and redirects. This avoids the browser's "resubmit form?" warning on reload
+2. `<form action={actions.createItem}>` — HTML + Action. Still zero JS. Use when POST accepts user input that requires type-safe Zod validation and structured error handling
 3. Island calls `actions.createItem()` — JS required. Use only when the mutation requires JS to modify the DOM (disable button, show spinner, display error, update list without reload)
 
 PRG pattern (layer 1):
@@ -162,7 +195,7 @@ const result = await Astro.session.get("result");
 
 Action definition:
 
-* `accept: "form"` — for `<form>` submissions (layers 1-2 above). Prefer this
+* `accept: "form"` — for `<form>` submissions (layer 2). Prefer this
 * `accept: "json"` — for programmatic calls from islands (layer 3). Use when the island constructs the payload without a form element
 
 Client feedback (crumple zone):
@@ -175,7 +208,7 @@ Client feedback (crumple zone):
 
 If feedback breaks, the action still completes or fails correctly on the server.
 
-`pages/api/` is only for external consumers (webhook receivers, streaming endpoints, non-JSON protocols) — not for mutations initiated by the client. Cookie operations, authentication, and all standard mutations use Actions.
+`pages/api/` is only for external consumers (webhook receivers, SSE/streaming) — not for mutations initiated by the client. Client-initiated mutations — including file uploads — use Actions (`accept: "form"` handles FormData with files) with processing logic in `features/*/data/`. Mutations without user input (logout, session clear) use PRG.
 
 ## Security Boundary
 
@@ -234,18 +267,17 @@ import { ClientRouter } from "astro:transitions";
   <ClientRouter />
 </head>
 <body>
-  <Header transition:animate="none" />
-  <Sidebar transition:animate="none" />
-  <main transition:animate="fade">
+  <Header />
+  <Sidebar />
+  <main>
     <slot />
   </main>
 </body>
 ```
 
-* Elements that appear on every page (header, sidebar, navigation): `transition:animate="none"`
-* Content area: `transition:animate="fade"` only
+* Add `<ClientRouter />` to the layout. The default crossfade applies to the entire page — no further directives needed
+* `transition:animate` and `transition:name` are unnecessary for the default crossfade. Specifying them generates per-component `view-transition-name` CSS, requiring individual tuning for each targeted Astro component. Omitting them avoids this overhead
 * Use `astro:page-load` instead of `DOMContentLoaded`
-* Prohibited: `transition:animate="slide"`, `transition:animate="morph"`, multiple `transition:name` on the same page
 * Never call `history.pushState()` or `history.replaceState()` in islands — ClientRouter stores navigation data in `history.state`. Overwriting it breaks browser back/forward. To update URL query params (filters, pagination), use `navigate()` from `astro:transitions/client` or `<a>` with the new query string
 * Disable when the layout component changes (e.g., login → dashboard) — use `window.location.href` for hard navigation instead of `navigate()`
 * Disable for non-HTML responses
@@ -256,11 +288,11 @@ import { ClientRouter } from "astro:transitions";
 src/
   middleware.ts
   pages/
-    api/                    — non-Action endpoints (webhooks, streaming, non-JSON)
+    api/                    — endpoints for external consumers only (webhook receivers, SSE/streaming)
   features/
     {feature}/
       types.ts
-      data/                 — data access, server-only (backend boundary: swap internals without changing callers). Only frontmatter and Action handlers call into data/. Islands must not import from this directory
+      data/                 — data I/O, server-only (backend boundary: swap internals without changing callers). API fetch, file processing, DB queries, storage writes. Only frontmatter and Action handlers call into data/. Islands must not import from this directory
       components/           — .astro (display) + islands (interaction)
   shared/
     layout/                 — AdminLayout, UserLayout
@@ -282,6 +314,20 @@ Test effort follows the reliability layers:
    * Storybook for human visual/interaction review. Whether feedback is appropriate is a human judgment
    * Automated tests (Playwright, component tests) raise confidence but do not determine correctness — they verify mechanics (button disables, error shows), not UX quality
 
+Test directory mirrors source structure:
+
+```
+tests/
+  fixtures/                     — real API response samples
+  features/
+    {feature}/
+      data/
+        {module}.test.ts
+  shared/
+```
+
+Test shared infrastructure (fetch wrappers, caching, rate limiting) in shared test files. Consumer tests should not re-test shared behavior — they test their own logic assuming the shared layer works.
+
 The server is the source of correctness. Test the server thoroughly; verify islands with human eyes.
 
 ## Post-Application Review
@@ -296,3 +342,7 @@ After applying CRZ principles, review every change against these checks before f
    * Are all exported functions called? Unused initializers, sync functions, or cache hydration calls indicate an over-designed layer.
 4. **Simplicity check**
    * Did the change add a layer, abstraction, or intermediate state? Is that layer actually needed, or does a simpler mechanism (SSR props, direct DOM update, existing browser API) already solve the problem? Remove any layer that exists only to satisfy a principle rather than to solve a real problem.
+5. **Island necessity check**
+   * For each island, list every `useState` call. Can each value be a server prop, URL query param, HTML attribute, CSS rule, or `<script>` DOM call? If yes for all values, the island should be an `.astro` component.
+6. **Document consistency check**
+   * Does the change add, remove, or rename a feature, route, or component? If yes, verify that CLAUDE.md, PROJECT.md, and any other project documentation reflect the current state. Deleted features must be removed from documentation.
