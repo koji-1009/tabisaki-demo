@@ -1,5 +1,4 @@
 import { actions } from "astro:actions";
-import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import type { ToneKey } from "../../types/index.ts";
 import { applyTheme } from "../../utils/apply-theme.ts";
@@ -15,6 +14,7 @@ export default function OnboardingWizard() {
 	const [color, setColor] = useState("#6750A4");
 	const [tone, setTone] = useState<ToneKey>("vibrant");
 	const [saving, setSaving] = useState(false);
+	const [error, setError] = useState<string | null>(null);
 
 	const handleColorSelect = (c: string) => {
 		setColor(c);
@@ -38,7 +38,7 @@ export default function OnboardingWizard() {
 			window.location.href = path;
 		} catch {
 			setSaving(false);
-			alert("保存に失敗しました。もう一度お試しください。");
+			setError("保存に失敗しました。もう一度お試しください。");
 		}
 	};
 
@@ -46,25 +46,19 @@ export default function OnboardingWizard() {
 
 	return (
 		<div>
-			<AnimatePresence mode="wait">
-				<motion.div
-					key={step}
-					initial={{ opacity: 0, x: 40 }}
-					animate={{ opacity: 1, x: 0 }}
-					exit={{ opacity: 0, x: -40 }}
-					transition={{ duration: 0.25 }}
-				>
-					{step === "color" && (
-						<ColorPicker selected={color} onSelect={handleColorSelect} />
-					)}
-					{step === "tone" && (
-						<TonePicker selected={tone} onSelect={handleToneSelect} />
-					)}
-					{step === "path" && (
-						<PathSelector onSelect={handleComplete} disabled={saving} />
-					)}
-				</motion.div>
-			</AnimatePresence>
+			<div key={step} className={styles.stepPanel}>
+				{step === "color" && (
+					<ColorPicker selected={color} onSelect={handleColorSelect} />
+				)}
+				{step === "tone" && (
+					<TonePicker selected={tone} onSelect={handleToneSelect} />
+				)}
+				{step === "path" && (
+					<PathSelector onSelect={handleComplete} disabled={saving} />
+				)}
+			</div>
+
+			{error && <p className={styles.error}>{error}</p>}
 
 			{canProceed && (
 				<div className={styles.footer}>

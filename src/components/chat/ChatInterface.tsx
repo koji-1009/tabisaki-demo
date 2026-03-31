@@ -17,16 +17,25 @@ interface Props {
 }
 
 interface Message {
+	id: number;
 	role: "user" | "assistant";
 	content: string;
 }
+
+let nextMessageId = Date.now();
 
 const CHAT_STORAGE_KEY = "tabisaki_chat_messages";
 
 function loadMessages(): Message[] {
 	try {
 		const saved = sessionStorage.getItem(CHAT_STORAGE_KEY);
-		return saved ? JSON.parse(saved) : [];
+		if (!saved) return [];
+		const messages: Message[] = JSON.parse(saved);
+		for (const m of messages) {
+			if (m.id == null) m.id = nextMessageId++;
+			else if (m.id >= nextMessageId) nextMessageId = m.id + 1;
+		}
+		return messages;
 	} catch {
 		return [];
 	}
@@ -53,7 +62,10 @@ export default function ChatInterface({ prefectures, activities }: Props) {
 		if (!input.trim() || aiState.status !== "available" || loading) return;
 		const userMsg = input.trim();
 		setInput("");
-		setMessages((prev) => [...prev, { role: "user", content: userMsg }]);
+		setMessages((prev) => [
+			...prev,
+			{ id: nextMessageId++, role: "user", content: userMsg },
+		]);
 		setLoading(true);
 		try {
 			// Detect activities from user message + previous assistant response
@@ -93,11 +105,15 @@ export default function ChatInterface({ prefectures, activities }: Props) {
 				: `${userMsg}\n\n${FORMAT_REMINDER}`;
 
 			const reply = await aiState.session.prompt(prompt);
-			setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
+			setMessages((prev) => [
+				...prev,
+				{ id: nextMessageId++, role: "assistant", content: reply },
+			]);
 		} catch {
 			setMessages((prev) => [
 				...prev,
 				{
+					id: nextMessageId++,
 					role: "assistant",
 					content: "エラーが発生しました。もう一度試してください。",
 				},
@@ -194,9 +210,9 @@ export default function ChatInterface({ prefectures, activities }: Props) {
 						やりたいことを一緒に絞り込んで、おすすめの都道府県を提案します！
 					</p>
 				)}
-				{messages.map((msg, i) => (
+				{messages.map((msg) => (
 					<div
-						key={`${msg.role}-${i}`}
+						key={msg.id}
 						className={`${styles.bubble} ${msg.role === "user" ? styles.userBubble : styles.aiBubble}`}
 					>
 						{msg.role === "user" ? (

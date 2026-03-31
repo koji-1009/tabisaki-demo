@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { useState } from "react";
 import {
 	addToWishlist,
@@ -25,13 +24,12 @@ export default function WishlistButton({ prefectureId }: Props) {
 	};
 
 	return (
-		<motion.button
+		<button
 			type="button"
-			whileTap={{ scale: 0.9 }}
 			onClick={toggle}
 			className={inList ? styles.buttonActive : styles.button}
 		>
 			{inList ? "行きたいリストから外す" : "行きたい！"}
-		</motion.button>
+		</button>
 	);
 }

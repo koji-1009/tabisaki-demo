@@ -1,5 +1,5 @@
 ---
-import DiscoverPage from "../components/discover/DiscoverPage";
+import PrefectureCard from "../components/search/PrefectureCard";
 import activitiesData from "../data/activities.json";
 import Layout from "../layouts/Layout.astro";
 import { getPrefectures } from "../services/prefectures.ts";
@@ -15,21 +15,142 @@ const activities = activitiesData as Activity[];
 
 const url = new URL(Astro.request.url);
 const activitiesParam = url.searchParams.get("activities");
-const initialActivities = activitiesParam
+const selected = activitiesParam
 	? (activitiesParam
 			.split(",")
 			.filter((a) => ACTIVITY_IDS.includes(a as ActivityId)) as ActivityId[])
 	: [];
+
+const hasSelection = selected.length > 0;
+
+const results = hasSelection
+	? prefectures
+			.map((p) => ({
+				prefecture: p,
+				score: selected.filter((a) => p.activities.includes(a)).length,
+			}))
+			.filter((r) => r.score > 0)
+			.sort((a, b) => b.score - a.score)
+	: [];
 ---
 
 <Layout title="発見">
-  <main class={pageStyles.main}>
-    <DiscoverPage client:idle prefectures={prefectures} activities={activities} selected={initialActivities} />
-    <div class={pageStyles.chatFooter}>
-      <p class={pageStyles.chatFooterText}>もっと自由に相談したい？</p>
-      <a href="/chat" class={pageStyles.chatFooterLink}>
-        AIチャットで相談する →
-      </a>
-    </div>
-  </main>
+	<main class={pageStyles.main}>
+		{hasSelection ? (
+			<div>
+				<div class="header">
+					<a href="/discover" class="back" data-astro-history="replace">← 条件を変える</a>
+					<h2 class="title">おすすめ {results.length}件</h2>
+				</div>
+				<div class="results-grid">
+					{results.map(({ prefecture, score }) => (
+						<div>
+							<PrefectureCard prefecture={prefecture} />
+							<p class="score">マッチ度: {score}/{selected.length}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		) : (
+			<div>
+				<h2 class="title">何がしたい？</h2>
+				<p class="subtitle">興味のあるものを選んでね</p>
+				<div class="activity-grid">
+					{activities.map((a) => (
+						<a
+							href={`/discover?activities=${a.id}`}
+							class="activity-card"
+							data-astro-history="replace"
+						>
+							<span class="activity-icon">{a.icon}</span>
+							<span class="activity-label">{a.label}</span>
+						</a>
+					))}
+				</div>
+			</div>
+		)}
+		<div class={pageStyles.chatFooter}>
+			<p class={pageStyles.chatFooterText}>もっと自由に相談したい？</p>
+			<a href="/chat" class={pageStyles.chatFooterLink}>
+				AIチャットで相談する →
+			</a>
+		</div>
+	</main>
 </Layout>
+
+<style>
+	.title {
+		font-size: 24px;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 8px;
+	}
+
+	.subtitle {
+		font-size: 14px;
+		text-align: center;
+		color: var(--md-sys-color-on-surface-variant, #49454f);
+		margin-bottom: 24px;
+	}
+
+	.header {
+		margin-bottom: 16px;
+	}
+
+	.back {
+		color: var(--md-sys-color-primary, #6750a4);
+		font-size: 14px;
+		cursor: pointer;
+		margin-bottom: 8px;
+		text-decoration: none;
+		display: inline-block;
+	}
+
+	.activity-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px;
+	}
+
+	.activity-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+		padding: 20px 12px;
+		border-radius: 16px;
+		border: 2px solid transparent;
+		cursor: pointer;
+		text-decoration: none;
+		background: var(--md-sys-color-surface-container, #f3edf7);
+		color: var(--md-sys-color-on-surface, #1c1b1f);
+		transition: transform 0.15s ease;
+	}
+
+	.activity-card:active {
+		transform: scale(0.95);
+	}
+
+	.activity-icon {
+		font-size: 32px;
+	}
+
+	.activity-label {
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	.results-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 16px;
+	}
+
+	.score {
+		font-size: 12px;
+		text-align: center;
+		margin-top: 4px;
+		color: var(--md-sys-color-tertiary, #7d5260);
+		font-weight: 600;
+	}
+</style>

@@ -7,7 +7,8 @@
 	cursor: pointer;
 	transition:
 		background 0.2s,
-		color 0.2s;
+		color 0.2s,
+		transform 0.15s ease;
 	background: var(--md-sys-color-surface-container-high, #ece6f0);
 	color: var(--md-sys-color-on-surface, #1c1b1f);
 }
@@ -21,7 +22,13 @@
 	cursor: pointer;
 	transition:
 		background 0.2s,
-		color 0.2s;
+		color 0.2s,
+		transform 0.15s ease;
 	background: var(--md-sys-color-tertiary, #7d5260);
 	color: var(--md-sys-color-on-tertiary, #fff);
+}
+
+.button:active,
+.buttonActive:active {
+	transform: scale(0.9);
 }

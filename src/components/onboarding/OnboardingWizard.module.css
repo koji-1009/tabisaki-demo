@@ -1,3 +1,23 @@
+.error {
+	text-align: center;
+	font-size: 14px;
+	color: var(--md-sys-color-error, #b3261e);
+	margin-top: 16px;
+}
+
+.stepPanel {
+	opacity: 1;
+	transform: translateX(0);
+	transition:
+		opacity 0.25s ease,
+		transform 0.25s ease;
+
+	@starting-style {
+		opacity: 0;
+		transform: translateX(40px);
+	}
+}
+
 .footer {
 	display: flex;
 	justify-content: center;

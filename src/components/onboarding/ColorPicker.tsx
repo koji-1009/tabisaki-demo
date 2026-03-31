@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import styles from "./ColorPicker.module.css";
 
 const colors = [
@@ -26,17 +25,16 @@ export default function ColorPicker({ selected, onSelect }: Props) {
 			<p className={styles.subtitle}>好きな色をタップ</p>
 			<div className={styles.grid}>
 				{colors.map(({ hex, label }) => (
-					<motion.button
+					<button
 						key={hex}
 						type="button"
-						whileTap={{ scale: 0.9 }}
 						onClick={() => onSelect(hex)}
 						className={`${styles.swatch} ${selected === hex ? styles.swatchSelected : ""}`}
 						style={{ background: hex }}
 						aria-label={label}
 					>
 						{selected === hex && <span className={styles.check}>✓</span>}
-					</motion.button>
+					</button>
 				))}
 			</div>
 		</div>
