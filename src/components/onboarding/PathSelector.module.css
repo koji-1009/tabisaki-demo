@@ -1,3 +1,16 @@
+.stepPanel {
+	opacity: 1;
+	transform: translateX(0);
+	transition:
+		opacity 0.25s ease,
+		transform 0.25s ease;
+
+	@starting-style {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+}
+
 .title {
 	font-size: 24px;
 	font-weight: 700;

@@ -5,7 +5,7 @@ Japanese prefecture discovery app built with Astro (SSR) + React (Islands).
 ## Tech Stack
 
 - **Framework**: Astro 6 (SSR mode, `output: 'server'`)
-- **Interactive UI**: React 19 + motion (islands only)
+- **Interactive UI**: React 19 (islands only)
 - **Theming**: `@material/material-color-utilities` (MD3 dynamic theming)
 - **Browser LLM**: Chrome built-in AI (Prompt API) — progressive enhancement
 - **Data**: Local JSON
@@ -95,7 +95,7 @@ src/
   middleware.ts          — Cookie check, redirect, theme injection
   layouts/Layout.astro   — Base layout with header nav + MD3 CSS vars
   pages/                 — Astro pages + API routes
-  components/            — React islands (onboarding, search, chat, etc.)
+  components/            — React islands (onboarding, chat, wishlist, settings) + SSR-only components (PrefectureCard)
   services/              — Data access layer
   data/                  — Static JSON (prefectures, activities)
   types/index.ts         — Shared TypeScript types + ACTIVITY_IDS

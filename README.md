@@ -18,7 +18,7 @@ Astro 5 (SSR) + React 19 (Islands Architecture) の実装デモ。
 | ------------- | ------------------------------------------ |
 | フレームワーク       | Astro 5 (SSR) + React 19 (Islands)         |
 | テーマ           | `@material/material-color-utilities` (MD3) |
-| アニメーション       | motion                                     |
+| アニメーション       | CSS transitions + `@starting-style`        |
 | バリデーション       | Zod                                        |
 | lint / format | Biome 2.x                                  |
 | テスト           | Vitest                                     |

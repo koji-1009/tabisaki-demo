@@ -31,6 +31,11 @@
 	justify-content: center;
 	outline: none;
 	outline-offset: 2px;
+	transition: transform 0.15s ease;
+}
+
+.swatch:active {
+	transform: scale(0.9);
 }
 
 .swatchSelected {

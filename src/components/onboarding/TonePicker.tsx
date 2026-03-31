@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import type { ToneKey } from "../../types/index.ts";
 import styles from "./TonePicker.module.css";
 
@@ -33,16 +32,15 @@ export default function TonePicker({ selected, onSelect }: Props) {
 			<p className={styles.subtitle}>テーマのトーンを決めよう</p>
 			<div className={styles.list}>
 				{tones.map(({ key, label, description }) => (
-					<motion.button
+					<button
 						key={key}
 						type="button"
-						whileTap={{ scale: 0.97 }}
 						onClick={() => onSelect(key)}
 						className={`${styles.card} ${selected === key ? styles.cardSelected : ""}`}
 					>
 						<span className={styles.label}>{label}</span>
 						<span className={styles.desc}>{description}</span>
-					</motion.button>
+					</button>
 				))}
 			</div>
 		</div>

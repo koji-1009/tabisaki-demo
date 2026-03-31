@@ -30,6 +30,11 @@
 	cursor: pointer;
 	text-align: left;
 	width: 100%;
+	transition: transform 0.15s ease;
+}
+
+.card:active {
+	transform: scale(0.97);
 }
 
 .cardSelected {

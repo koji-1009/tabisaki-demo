@@ -11,7 +11,7 @@ Japanese prefecture discovery app. Users go through animated onboarding (pick th
 3. **MD3 theming** — `@material/material-color-utilities` generates design tokens. Applied as CSS custom properties.
 4. **Cookie `user_prefs`** — Stores `{ color, tone, onboarded }`. Middleware uses this for routing and theme injection. Default theme generated even without cookie.
 5. **Shared constants** — `ACTIVITY_IDS` / `REGION_IDS` in `src/types/index.ts` is the single source of truth. Types derived via `typeof`. Don't duplicate.
-6. **ErrorBoundary** — Major page islands wrapped via `*Page.tsx` (ChatPage, DiscoverPage, SearchPage).
+6. **ErrorBoundary** — Page islands wrapped via `*Page.tsx` (ChatPage, WishlistPage).
 
 ## Code Style
 
@@ -40,8 +40,9 @@ Japanese prefecture discovery app. Users go through animated onboarding (pick th
 
 ## When Working on Components
 
-- React components are Astro islands — use `client:load` or `client:visible` directives
-- motion (formerly framer-motion) for animations — import from `motion/react`
+- Prefer Astro components (.astro) for data display; use React islands only when local state is required
+- Search and discover pages are fully server-rendered (no islands)
+- CSS transitions + `@starting-style` for animations (no JS animation library)
 - Use CSS custom properties (`--md-sys-color-*`) for theming, not hardcoded colors
 - Mobile-first (375px+ viewport)
 
